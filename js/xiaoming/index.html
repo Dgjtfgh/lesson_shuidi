@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>刘功名泡妞记</title>
+</head>
+<body>
+    <script>
+        // alert('先取功名，再成家');
+        class Flower {
+            constructor(type, n) { //构造 new 运行
+                this.type = type;  //属性
+                this.n = n;
+            }
+        }
+        var gongming = {
+            name: '刘功名',
+            age: 21,
+            favortes:['代码','看书','打撸'],
+            room: 1114,
+            yz: 100,
+            hometown: '赣州兴国',
+            isSingle: true,
+            sendFlower: function(target) {
+                var flower = new Flower('红玫瑰', 11);
+                console.log(flower.type, flower.n);
+                target.receiveFlower(this, flower);
+            }
+        }
+        var xiaohong = {
+            name: '小红',
+            age: 18,
+            isGoodMod: false,
+            receiveFlower: function(sender, flower) {
+            if(!this.isGoodMod) {
+                console.log('丑拒,娘娘心情不好');
+            } else {
+                console.log('万达走一波');
+            }
+    //   console.log(sender, flower);
+    }
+  }
+        var xiaomei = {
+            hometown: '赣州兴国',
+            receiveFlower: function(sender, flower){
+                if (sender.name == '刘功名') {
+                    console.log('名哥哥，还是我们在一起吧...');
+                } else {
+                    xiaohong.receiveFlower(sender, flower);
+                }
+                // setTimeout(function() {
+                //     xiaohong.receiveFlower(sender, flower);
+                // }, 10000);
+                
+            }
+        }
+        gongming.sendFlower(xiaomei);
+    </script>
+</body>
+</html>

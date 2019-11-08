@@ -95,41 +95,41 @@ canvas {
 }
 @-moz-keyframes sw {
   0% {
-    transform: rotate(5deg);
+    transform: rotate(10deg);
     transform-origin: top center;
   }
   100% {
-    transform: rotate(-5deg);
+    transform: rotate(-10deg);
     transform-origin: top center;
   }
 }
 @-webkit-keyframes sw {
   0% {
-    transform: rotate(5deg);
+    transform: rotate(10deg);
     transform-origin: top center;
   }
   100% {
-    transform: rotate(-5deg);
+    transform: rotate(-10deg);
     transform-origin: top center;
   }
 }
 @-o-keyframes sw {
   0% {
-    transform: rotate(5deg);
+    transform: rotate(10deg);
     transform-origin: top center;
   }
   100% {
-    transform: rotate(-5deg);
+    transform: rotate(-10deg);
     transform-origin: top center;
   }
 }
 @keyframes sw {
   0% {
-    transform: rotate(5deg);
+    transform: rotate(10deg);
     transform-origin: top center;
   }
   100% {
-    transform: rotate(-5deg);
+    transform: rotate(-10deg);
     transform-origin: top center;
   }
 }

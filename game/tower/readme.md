@@ -7,3 +7,6 @@
   loading。。。
   开始游戏界面
   win or lose
+
+- stylus 让css 具有了模块化功能 嵌套
+  自动补全 更高效

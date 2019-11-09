@@ -8,4 +8,9 @@
   .weui-cell__bd
   .weui-cell__ft
 hd + bd + ft
-__ 子元素关系  Block Element Modifier
+__ 子元素关系 BEM (Block Element Modifier)
+
+- 研究微信官方的前端框架weui源码
+- BEM 挺好的，类名取名的依据
+- .hd + .bd + .ft  少跟业务相关，多一些抽象
+- 弹性布局 align-items: center; flex: 1;

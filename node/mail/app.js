@@ -22,7 +22,7 @@ transporter.sendMail(mailOptions, (error, info) => {
   }
   console.log('Message send: %s', info.messageId);
 })
-const TULING = require('tuling');
+// const TULING = require('tuling');
 
 // const aiTuling = new TULING({
 //     key: 'cf55a3574c3845719fc56cebbd6b3651'

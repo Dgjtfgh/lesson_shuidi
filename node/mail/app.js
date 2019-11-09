@@ -16,13 +16,13 @@ let mailOptions = {
   subject: '双11买什么？',
   html: '<b>淘宝京东拼多多</b>'
 }
-// transporter.sendMail(mailOptions, (error, info) => {
-//   if (error) {
-//     return console.log(error);
-//   }
-//   console.log('Message send: %s', info.messageId);
-// })
-// const TULING = require('tuling');
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+    return console.log(error);
+  }
+  console.log('Message send: %s', info.messageId);
+})
+const TULING = require('tuling');
 
 // const aiTuling = new TULING({
 //     key: 'cf55a3574c3845719fc56cebbd6b3651'

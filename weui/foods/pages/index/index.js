@@ -51,7 +51,7 @@ Page({
   onLoad() {
     console.log('onLoad');
   },
-  onReachBottom() { 
+  onReachBottom() {
     // console.log('触底了');
     const data = [...this.data.entities, ...this.data.entities]; // ... 扩展运算符 || 剩余运算符
     this.setData({

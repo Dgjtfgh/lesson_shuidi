@@ -55,62 +55,62 @@
         <a href="javascript:;" id="play-btn">play</a>
     </div>
     <script>
-        var btn = document.getElementById('play-btn');
-  var audio = document.getElementById('audio');
-  btn.addEventListener('click', function() {
+    var btn = document.getElementById('play-btn');
+    var audio = document.getElementById('audio');
+    btn.addEventListener('click', function() {
     btn.style.display = 'none';
     audio.play();
     onLoadAudio();
-  });
+    });
 
-  function onLoadAudio() {
-    var canvas = document.getElementById('canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function onLoadAudio() {
+      var canvas = document.getElementById('canvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
-    var ctx = canvas.getContext('2d');
-    var WIDTH = canvas.width;
-    var HEIGHT = canvas.height;
-    // 音量再强, 输入 量化的， 
+      var ctx = canvas.getContext('2d');
+      var WIDTH = canvas.width;
+      var HEIGHT = canvas.height;
+      // 音量再强, 输入 量化的， 
     
-    var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
-    //对音乐做分析
-    var analyser = audioCtx.createAnalyser(); 
-    analyser.fftSize = 512;
-    // audio 歌
-    var source = audioCtx.createMediaElementSource(audio);
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
+      var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+      //对音乐做分析
+      var analyser = audioCtx.createAnalyser(); 
+      analyser.fftSize = 512;
+      // audio 歌
+      var source = audioCtx.createMediaElementSource(audio);
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
 
-    var bufferLength = analyser.frequencyBinCount; //频率
-    var dataArray = new Uint8Array(bufferLength); //创建了一个数组
-    // console.log(dataArray);
+      var bufferLength = analyser.frequencyBinCount; //频率
+      var dataArray = new Uint8Array(bufferLength); //创建了一个数组
+      // console.log(dataArray);
 
-    //宽度
-    var barWidth = WIDTH /bufferLength * 1.5;
-    var barHeight;
-    function renderFrame() {
-      requestAnimationFrame(function() {
-        renderFrame();
-        // console.log('----');
-        ctx.clearRect(0, 0, WIDTH, HEIGHT);
-        analyser.getByteFrequencyData(dataArray);
-        console.log(dataArray);
-        for (var i = 0, x = 0; i < bufferLength; i++) {
-          barHeight = dataArray[i];
-          var r = barHeight + 25 * (i / bufferLength);
-              var g = 255 * (i / bufferLength);
-              // console.log(i);
-              var b = 50;
-              // console.log("rgb(" + r + "," + g + "," + b + ")");
-              ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
-          ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
-          x += barWidth + 2;
-        }
-      })
+      //宽度
+      var barWidth = WIDTH /bufferLength * 1.5;
+      var barHeight;
+      function renderFrame() {
+        requestAnimationFrame(function() {
+          renderFrame();
+          // console.log('----');
+          ctx.clearRect(0, 0, WIDTH, HEIGHT);
+          analyser.getByteFrequencyData(dataArray);
+          console.log(dataArray);
+          for (var i = 0, x = 0; i < bufferLength; i++) {
+            barHeight = dataArray[i];
+            var r = barHeight + 25 * (i / bufferLength);
+            var g = 255 * (i / bufferLength);
+            // console.log(i);
+            var b = 50;
+            // console.log("rgb(" + r + "," + g + "," + b + ")");
+            ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+            ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+            x += barWidth + 2;
+          }
+        })
+      }
+      renderFrame();
     }
-    renderFrame();
-  }
     </script>
 </body>
 </html>

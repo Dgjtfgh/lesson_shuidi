@@ -1,0 +1,17 @@
+
+<view class="media-bigbox" >
+<view 
+wx:for="{{products}}"
+class="media-box">
+  <view class="media-box__hd">
+    <image class="media-box__thumb" src="{{item.imageUrl}}"></image>
+  </view>
+  <view class="media-box__bd">
+    <view class="media-box__title">{{item.title}}</view>
+    <view class="media-box__desc">
+      <view class="media-box__price">{{item.price}}</view>
+      <view class="media-box__sc">{{item.sale_number}}</view>
+    </view>
+  </view>
+</view>
+</view>

@@ -14,6 +14,12 @@ MinStack.prototype.push = function (x) {
 }
 MinStack.prototype.pop = function (){
     const item = this.stack.pop();
+    this.min = this.stack[0];
+    for(let i = 1; i < this.stack.length; i++){
+        if(this.stack[i] < this.min){
+            this.min = this.stack[i];
+        }
+    }
     return item;
 }
 MinStack.prototype.top = function () {
@@ -29,5 +35,8 @@ var stack = new MinStack();
 stack.push(-2);
 stack.push(0);
 stack.push(-3);
+console.log(stack.toString());
+console.log(stack.getMin());
+stack.pop();
 console.log(stack.toString());
 console.log(stack.getMin());

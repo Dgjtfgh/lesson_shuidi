@@ -1,7 +1,10 @@
 
+<!-- <view class="media-box_search">
+  <image class="sousuo" src="../../images/sousuo.jpg"></image>
+</view> -->
 <view class="media-bigbox" >
 <view 
-wx:for="{{products}}"
+wx:for="{{goods}}" wx:for-item="item"
 class="media-box">
   <view class="media-box__hd">
     <image class="media-box__thumb" src="{{item.imageUrl}}"></image>
@@ -9,8 +12,8 @@ class="media-box">
   <view class="media-box__bd">
     <view class="media-box__title">{{item.title}}</view>
     <view class="media-box__desc">
-      <view class="media-box__price">{{item.price}}</view>
-      <view class="media-box__sc">{{item.sale_number}}</view>
+      <view class="media-box__price">¥{{item.price}}</view>
+      <view class="media-box__sc">{{item.sale_number}}人付款</view>
     </view>
   </view>
 </view>

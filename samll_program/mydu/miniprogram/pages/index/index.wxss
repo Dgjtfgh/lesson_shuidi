@@ -9,12 +9,13 @@ page {
   height: 100vh;
   display: flex;
   /* 子元素总宽度超过父元素宽度时换行显示 */
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 } 
 .media-box{
-  width: 41.4vw;
-  height: 40vh;
+  width: 50vw;
+  height: 35vh;
   border: 1px solid #f6f6f6;
+  box-sizing:border-box;
   display: inline-block;
 }
 .media-box__thumb{

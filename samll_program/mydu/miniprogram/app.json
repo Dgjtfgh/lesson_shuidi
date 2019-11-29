@@ -30,7 +30,7 @@
     "backgroundColor": "#ededed",
     "list": [
       {
-        "text": "首页",
+        "text": "购买",
         "pagePath": "pages/index/index",
         "iconPath": "images/shop.png",
         "selectedIconPath": "images/shop-active.png"

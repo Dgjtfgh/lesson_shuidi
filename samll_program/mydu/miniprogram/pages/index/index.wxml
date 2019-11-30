@@ -1,7 +1,13 @@
 
-<!-- <view class="media-box_search">
-  <image class="sousuo" src="../../images/sousuo.jpg"></image>
-</view> -->
+<view class="media-box_top">
+    <a class="media-box__search" href="">
+    <image class="media-box_search__tb" src="search.png"></image>
+    <view class="text">搜索单品</view>
+  </a>
+  <a class="media-box_classify">
+    <image class="media-box_classify__thumb" src="ALL.png"></image>
+  </a>
+</view>
 <view class="media-bigbox" >
 <view 
 wx:for="{{goods}}" wx:for-item="item"

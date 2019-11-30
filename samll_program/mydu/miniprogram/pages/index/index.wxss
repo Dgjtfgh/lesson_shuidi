@@ -3,10 +3,49 @@ page {
   margin: 0;
   padding: 0;
 }
+.media-box_top{
+  width: 100vw;
+  height: 5vh;
+  margin: 10rpx 0;
+  /* background-color: yellow; */
+  display: flex; 
+}
 
+.media-box__search{
+  margin-left: 30rpx;
+  padding-left: 15rpx;
+  width: 90%;
+  height: 100%;
+  line-height: 82rpx;
+  color: #8a8a8a;
+  background-color: #f2f2f2;
+  box-sizing:border-box;
+  display: flex;
+  /* background-color: green; */
+}
+.media-box_search__tb{
+  width: 10%;
+  height: 100%;
+ 
+}
+.text{
+  font-size: 80%;
+  line-height: 50rpx;
+}
+.media-box_classify{
+  width: 10%;
+  margin: 0 15rpx;
+  padding: 0 10rpx;
+  box-sizing:border-box;
+  /* background-color: blue; */
+}
+.media-box_classify__thumb{
+  width: 100%;
+  height: 100%;
+}
 .media-bigbox{
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   /* 子元素总宽度超过父元素宽度时换行显示 */
   flex-wrap: wrap;

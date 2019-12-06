@@ -3,34 +3,45 @@ page {
   margin: 0;
   padding: 0;
 }
+.media-box__topbox{
+  width: 100vw;
+  height: 12vh;
+  position: flex;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
 .media-box_top{
   width: 100vw;
   height: 5vh;
-  margin: 10rpx 0;
+  margin: 20rpx 0;
   /* background-color: yellow; */
   display: flex; 
 }
-
 .media-box__search{
   margin-left: 30rpx;
   padding-left: 15rpx;
   width: 90%;
   height: 100%;
   line-height: 82rpx;
-  color: #8a8a8a;
-  background-color: #f2f2f2;
+  color: #ABAABB;
+  background-color: #f5f4f9;
   box-sizing:border-box;
   display: flex;
   /* background-color: green; */
 }
 .media-box_search__tb{
-  width: 10%;
-  height: 100%;
+  width: 50rpx;
+  height: 50rpx;
  
+}
+.media-box_search__tb image{
+  width: 100%;
+  height: 100%;
 }
 .text{
   font-size: 80%;
-  line-height: 50rpx;
+  line-height: 65rpx;
 }
 .media-box_classify{
   width: 10%;
@@ -43,24 +54,53 @@ page {
   width: 100%;
   height: 100%;
 }
+.nav {
+  height: 45%;
+  width: 100%;
+  /* position: fixed; */
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 100%;
+  background-color: #FFFFFF;
+  font-style: .9rem;
+  white-space: nowrap;
+  /* top: 0; */
+  /* left: 100rpx; */
+  /* right: 100rpx; */
+  /* z-index: 99; */
+  margin-top: 30rpx;
+  /* margin-bottom: 20rpx; */
+}
+.nav-item {
+  display: inline-block;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  text-align: center;
+  color: #ABAABB;
+}
+.nav-item.active {
+  color: #000000;
+}
 .media-bigbox{
   width: 100vw;
-  height: 95vh;
+  /* height: 85vh; */
+  background-color: #F5F4F9;
   display: flex;
   /* 子元素总宽度超过父元素宽度时换行显示 */
   flex-wrap: wrap;
 } 
 .media-box{
   width: 50vw;
-  height: 35vh;
-  border: 1px solid #f6f6f6;
+  height: 30vh;
+  background-color: #fff;
+  border: 0.5px solid #f5f4f9;
   box-sizing:border-box;
   display: inline-block;
 }
 .media-box__thumb{
   padding-left: 8rpx;
   margin: 4rpx;
-  width: 93%;
+  width: 90%;
 }
 .media-box__hd{
   padding: 2rpx;
@@ -73,22 +113,28 @@ page {
   height: 34%;
 }
 .media-box__title{
-  width: 80%;
+  width: 100%;
+  font-size: 80%;
   text-align: center;
 }
 .media-box__desc{
+  width: 100%;
   display: flex;
 }
 .media-box__price{
-  padding-left: 0.5rem;
+  /* padding-left: 0.2rem; */
   width: 50%;
   color: #000;
-  line-height: 1.5rem;
+  line-height: 1.7rem;
+}
+.media-box__price symbol{
+  font-size: .55rem;
 }
 .media-box__sc{
-  padding-top: 0.7rem;
-  padding-right: 1rem;
+  /* padding-top: 0.7rem; */
+  /* padding-right: .5rem; */
   width: 50%;
   text-align: right;
-  font-size: .7rem;
+  font-size: .55rem;
+  line-height: 1.7rem;
 }

@@ -10,5 +10,5 @@ module.exports = app => {
   // 注册  req res  控制器层
   router.post('/login/register', controller.login.register);
   // 登录  post  请求login
-  router.post('/login', controller.login.loginIn)
+  router.post('/login', controller.login.loginIn);
 };

@@ -14,7 +14,13 @@ module.exports = appInfo => {
   config.security = { csrf: { enable: false } };
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1575685730434_4472';
-
+  config.sequelize = {
+    dialect: 'mysql',
+    host: '192.168.31.129',
+    port: 3306,
+    password: '1234567890',
+    database: 'xwk_instagram',
+  };
   // add your middleware config here
   config.middleware = [];
   // add your user config here

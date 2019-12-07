@@ -1,6 +1,9 @@
+/* eslint-disable indent */
+/* eslint-disable no-unused-vars */
 // eslint-disable-next-line strict
 const Service = require('egg').Service;
 const crypto = require('crypto');
+const uuid = require('uuid');
 class UserService extends Service {
   async register(user) {
     const { ctx } = this;
@@ -8,11 +11,13 @@ class UserService extends Service {
     user.password = crypto.createHmac('sha256', 'cxk1728cn')
       .update(user.password)
       .digest('hex');
+    // user.user_id = uuid.v4().replace(/-/g, '');
+    const userInfo = await this.ctx.model.User.create(user);
     ctx.body = {
       // 密码绝对不能存明文的  单向加密
-      user,
       msg: '注册成功',
-      user_id: 10001,
+      userInfo,
+      // user_id: user.user_id,
     };
   }
 }

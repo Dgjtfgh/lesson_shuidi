@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>traingle</title>
+    <style>
+    .traingle{
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 200px;
+        left: 300px;
+        border-top: 50px solid blue;
+        border-bottom: 50px solid yellow;
+        border-right: 50px solid red;
+        border-left: 50px solid green;
+    }
+    
+    .traingle_s{
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 200px;
+        left: 100px;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid yellowgreen;
+    }
+    .traingle_s:hover{
+        border-top: 100px solid yellowgreen;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 0;
+    }
+    .trapezoid{
+        position: relative;
+        width: 60px;
+        height: 60px;
+    }
+    .trapezoid::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: perspective(20px) scaleY(1.3) rotateX(5deg);
+        transform-origin: bottom;
+        background: yellowgreen;
+    }
+    .trapezoid_s{
+        width: 20px;
+        height: 0;
+        position: absolute;
+        left: 200px;
+        border-bottom: 50px solid yellow;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+    }
+    </style>
+</head>
+<body>
+    <div class="traingle"></div>
+    <div class="traingle_s"></div>
+    <div class="trapezoid"></div>
+    <div class="trapezoid_s"></div>
+</body>
+</html>

@@ -7,7 +7,7 @@
   <title>Document</title>
   <style>
   [v-cloak]{
-      display: none;
+    display: none
   }
   </style>
   <!-- MVVM 响应式 数据驱动的界面 -->
@@ -100,21 +100,24 @@
           price: 20.0
         }],
         book: { /*为了表单服务*/
-          id: '',
-          author: '',
+          id: 0,
           name: '',
+          author: '',
           price: ''
         },
-        sortparam: ''
+        sortparam: '', /*排序的类型*/
+        // title: '标题'
       }
     },
     methods: {
       addBook() {
         // console.log(this.book);
         // 维护数据， 页面会自动更新
+        // 对象 引用类型
         this.book.id = this.books.length + 1;
+        this.book.price = Number(this.book.price);
         this.books.push(this.book);
-        this.book.id = ''
+        this.book = '';
       },
       sortBy (sortparam) {
         // 支持所有type的排序 
@@ -122,14 +125,17 @@
         // arr.sort  函数
         this.sortparam = sortparam;
         this.books.sort(function(a, b) {
-            let aVal = a[sortparam];
-            let bVal = b[sortparam];
-            if (typeof aVal == 'number' && typeof bVal == 'number') {
-                return aVal - bVal;
-            }else {
-                return  aVal.charCodeAt(0) - bVal.charCodeAt(0);
-            }
+          let aVal = a[sortparam];
+          let bVal = b[sortparam];
+          console.log(aVal, bVal);
+          // console.log(aVal, bVal);
+          if (typeof aVal == 'number' && typeof bVal == 'number') {
+            return aVal - bVal;
+          } else {
+            return  aVal.charCodeAt(0) - bVal.charCodeAt(0)
+          }
         })
+        console.log(this.books);
       }
     }
   })

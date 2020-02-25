@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <search />
+    <!-- <search /> -->
     <router-view/>
   </div>
 </template>
@@ -9,7 +9,7 @@
 import Search from './components/Search';
 export default {
   components: {
-    Search
+    // Search
   }
 }
 </script>

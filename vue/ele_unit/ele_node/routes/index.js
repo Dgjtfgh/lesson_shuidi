@@ -7,6 +7,5 @@ module.exports = app => {
   //   res.send('hello');
   // })
   // 模块子路由
-  
   app.use('/admin', admin)
 }

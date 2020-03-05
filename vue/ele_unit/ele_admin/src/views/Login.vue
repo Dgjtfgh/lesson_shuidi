@@ -127,8 +127,9 @@ export default {
   position absolute
   top 50%
   left 50%
-  margin-top -160px
-  margin-left -120px
+  margin-top -120px
+  margin-left -160px
+  box-sizing border-box
   padding 25px
   border-radius 5px
   text-align center

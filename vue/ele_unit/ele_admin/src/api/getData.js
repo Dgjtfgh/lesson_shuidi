@@ -12,10 +12,10 @@ export const login = (data) => {
       // }, 1000) 
       // http://127.0.0.1:8080/  跨项目 
       // 跨机房 跨域了吗？
-      fetch('/api/admin/login', {
+      fetch('/admin/login', {
         method: 'POST', //请求头
         body: JSON.stringify(data) //请求体 request body
-      })
+      }) 
       .then(data => data.json())
       .then(data => {
         console.log(data, '----------')

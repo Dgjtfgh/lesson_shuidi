@@ -38,3 +38,6 @@ $group   group by
 
 第一季度已完成的订单
 db.orders.aggregate([ { $match: {status: "completed", orderDate: {$gte: ISODate("2019-01-01"), $lt: ISODate("2019-04-01") }}}]);
+
+todo 活动  activity  开始日期， 结束日期  time
+可以给时间戳

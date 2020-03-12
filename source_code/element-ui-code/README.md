@@ -35,3 +35,12 @@
 - element-ui  组件开发， 框架， 难度以及标准度， 专业度， 由多人，多个部门协作
   一个组件就像一个项目一样来开发
   index.js  方便安装  install
+
+# ElButton
+  - components/ElButton
+  - 保留css   focus组件设计
+  - type 生成不同类名  computed
+    is-plain   is-round
+    :class
+    icon
+    slot  v-if

@@ -44,3 +44,8 @@
     :class
     icon
     slot  v-if
+  - disabled  手动去禁用
+  - loading   加载中   处理中...   不能再点击
+  - icon      只显示一种状态
+
+

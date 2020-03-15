@@ -8,7 +8,7 @@
       </carousel-item>
     </carousel>-->
     <!-- <carousel-item /> -->
-    <el-button
+    <!-- <el-button
       type="success"
       :plain="true"
       icon="el-icon-search"
@@ -16,16 +16,28 @@
       nativeType="reset"
       @click="search"
     >搜索</el-button>
-    <div>
+    <div> -->
       <!-- 容器式组件 -->
-    <el-button-group>
+    <!-- <el-button-group>
       <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
       <el-button type="primary">
         下一页
         <i class="el-icon-arrow-right el-icon--right"></i>
       </el-button>
     </el-button-group>
-    </div>
+    </div> -->
+    <el-badge :value="12" class="item">
+      <el-button size="small">评论</el-button>
+    </el-badge>
+    <el-badge :value="102" :max="99" class="item">
+      <el-button size="small">评论</el-button>
+    </el-badge>
+    <el-badge type="primary" :hidden="ishidden" value="hot" class="item">
+      <el-button size="small">评论</el-button>
+    </el-badge>
+    <el-badge is-dot class="item">
+      数据查询
+    </el-badge>
     <!-- <el-alert 
     title="成功提示的文案" 
     type="error"
@@ -40,18 +52,28 @@
 import ElAlert from "./components/ElAlert.vue";
 import ElButton from "./components/ElButton.vue";
 import ElButtonGroup from "./components/ElButtonGroup.vue";
+import ElBadge from "./components/ElBadge.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      ishidden: false
+    }
+  },
   components: {
-    "el-alert": ElAlert,
-    "el-button": ElButton,
-    "el-button-group": ElButtonGroup
+    ElAlert,
+    ElButton,
+    ElButtonGroup,
+    ElBadge
   },
   methods: {
     search(evt) {
       console.log(evt);
     }
+  },
+  mounted() {
+      setTimeout(() => this.ishidden = true ,3000)
   }
 };
 </script>
@@ -61,7 +83,11 @@ export default {
   padding: 0;
   margin: 0;
 }
-/* html, body {
-  background-color: green;
-} */
+html, body {
+  /* background-color: green; */
+  margin-top: 10px;
+}
+.item{
+  margin-right: 30px;
+}
 </style>

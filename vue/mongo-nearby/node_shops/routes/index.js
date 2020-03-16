@@ -24,11 +24,11 @@ shop.get('/', async(req, res) => {
 
 shop.post('/', async(req, res) => {
   console.log('---shops');
-  const fjnz = new Shop({
+  const shop = new Shop({
     name: '农家小厨',
     location: [115.024958,27.11611]
   });
-  fjnz
+  shop
     .save((err, saved)=> {
       res.json({
         status:1

@@ -12,7 +12,7 @@ const shopSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true, // 必填
-    // index: true
+    // index: true  索引直接为name
   },
   location: {  // lbs  latitude , longtide
     type: [Number], // [120.000, 23.444]

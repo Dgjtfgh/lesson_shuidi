@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 
 db.once('open' ,() => {
-	console.log('连接数据库成功');
+	console.log('成功连接数据库');
 })
 
 db.on('error', function(error) {

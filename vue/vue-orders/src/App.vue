@@ -112,14 +112,17 @@ export default {
     // setTimeout(() => {
     //   this.listLoading = false
     // }, 1000)
-    Axios.post('/api/orders', {
+    Axios.get('/api/orders', {
       params: {
         // 分页
+        limit: this.limit,
+        page: this.page
       }
     })
     .then(res => {
-      // console.log(res);
-      this.list = res.data.orders
+      console.log(res);
+      this.list = res.data.result
+      this.total = res.data.total
       setTimeout(() => {
         this.listLoading = false
       }, 1000)
@@ -129,6 +132,22 @@ export default {
   methods: {
     handleCurrentChange(page) {
       console.log(page);
+      this.page = page;
+      Axios.get('/api/orders', {
+      params: {
+        // 分页
+        limit: this.limit,
+        page: this.page
+      }
+    })
+    .then(res => {
+      console.log(res);
+      this.list = res.data.result
+      this.total = res.data.total
+      setTimeout(() => {
+        this.listLoading = false
+      }, 1000)
+    })
     }
   }
 }

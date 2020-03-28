@@ -1,0 +1,8 @@
+[
+    {"user": "张三", "message": "散步", "uid": 1, "age":18, "city":"北京"},
+    {"user": "李四", "message": "喜欢代码", "uid": 1, "age":18, "city":"江西"},
+    {"user": "张来", "message": "代码王子", "uid": 1, "age":18, "city":"北京"},
+    {"user": "老王", "message": "隔壁的", "uid": 1, "age":18, "city":"广东"},
+    {"user": "老五", "message": "闲人", "uid": 1, "age":18, "city":"上海"},
+    {"user": "张富贵", "message": "大财主", "uid": 1, "age":18, "city":"北京"}
+]

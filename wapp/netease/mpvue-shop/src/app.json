@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/goods/main",
     "pages/index/main",
     "pages/search/main",
     "pages/topic/main",
@@ -9,8 +8,9 @@
     "pages/my/main",
     "pages/mappage/main",
     "pages/brandlist/main",
-    "pages/newgoods/main"
-    
+    "pages/newgoods/main",
+    "pages/goods/main",
+    "pages/order/main"
     
   ],
   "permission": {

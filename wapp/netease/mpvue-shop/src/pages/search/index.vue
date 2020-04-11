@@ -3,7 +3,13 @@
         <div class="head">
             <div>
                 <img src="../../../static/images/search.png" alt="">
-                <input type="text" confirm-type="search" focus="true" placeholder="商品搜索" v-model="words" @focus="inputFocus" @input="tipsearch" @confirm="searchWords">
+                <input type="text" 
+                    confirm-type="search" 
+                    focus="true" placeholder="商品搜索" 
+                    v-model="words" 
+                    @focus="inputFocus" 
+                    @input="tipsearch" 
+                    @confirm="searchWords">
                 <img @click="clearInput" class="del" src="../../../static/images/clear.png" alt="">
             </div>
             <div @click="cancel">取消</div>

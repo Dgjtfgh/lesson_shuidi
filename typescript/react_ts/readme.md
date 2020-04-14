@@ -16,3 +16,7 @@ webpack  编译
     entry 可以有多个打包入口吗？
     vendor 库   vue.js  vuex  vue-router
     提升编译速度， 同时保障及改善了用户的浏览体验  缓存
+5. tsx 在工作流是如何完成编译支持的
+    resolve.extendsion tsx -> module, test .tsx? -> awesome-typescript-loader -> tsconfig.json jsx -> react -> babel
+    jsx 良好表现的template 语法
+- dist 目录不删除再生成？ 

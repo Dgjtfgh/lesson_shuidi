@@ -8,14 +8,17 @@ const basePath = __dirname;
 module.exports = {
   context: path.join(basePath, 'src'),
   resolve: {   // 处理静态文件
-    extensions: ['.js', '.ts'],
+    extensions: ['.js', '.ts', '.tsx'],
   },
   entry: {
-    app: './index.ts',
-    vendorStyles: [  // bootstrap  css框架  业务代码在改变， 框架要被打包但不会被修改  单独打包
-      '../node_modules/bootstrap/dist/css/bootstrap.css',
+    app: './index.tsx',
+    vendor: [
       'react',
-      'react-dom'
+      'react-dom',
+      'react-router-dom'
+    ],
+    vendorStyles: [  // bootstrap  css框架  业务代码在改变， 框架要被打包但不会被修改  单独打包
+      '../node_modules/bootstrap/dist/css/bootstrap.css'
     ],
     // vendor: Object.keys(package.json.dependencies)  // 获取生产环境依赖的库
   },
@@ -26,7 +29,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'awesome-typescript-loader',
         options: {
@@ -61,17 +64,17 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css',
+      chunkFilename: '[name].css',
     })
   ],
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          name: "vendor",
-          chunks: "initial"
-        }
-      }
-    }
-  }
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       vendor: {
+  //         name: "vendor",
+  //         chunks: "initial"
+  //       }
+  //     }
+  //   }
+  // }
 };

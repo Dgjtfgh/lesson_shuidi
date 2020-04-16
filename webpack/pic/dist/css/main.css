@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+}
+body {
+    text-align: center;
+    background: url(../imgs/dlam.89a51afd.jpg) no-repeat green;
+}
+body {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+

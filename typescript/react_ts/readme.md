@@ -19,4 +19,11 @@ webpack  编译
 5. tsx 在工作流是如何完成编译支持的
     resolve.extendsion tsx -> module, test .tsx? -> awesome-typescript-loader -> tsconfig.json jsx -> react -> babel
     jsx 良好表现的template 语法
-- dist 目录不删除再生成？ 
+- dist 目录不删除再生成？ 历史版本都留下，利于回滚代码
+
+- react 语法  ts
+    router + redux + api 类型约束
+- <{}> 
+    1. App AppRouter 引入的/组件， 类型定义
+    2. React.StatelessComponent<{}> 定义文件 node_modules/@types/react/index.d.ts
+- bootstrap  entry 多入口

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 头条 
+    // 各大互联网
+    // console.log('script start');
+    // setTimeout(function () {
+    //   console.log('setTimeout');
+    // }, 0);
+    // Promise.resolve().then(function () {
+    //   console.log('promise1');
+    // }).then(function () {
+    //   console.log('promise2');
+    // });
+    // console.log('script end');
+    // event-loop
+    // taskqueue: ['script start' 'script end', 'setTimeout']
+    // Microtask: ['promise1'， 'promise2']
+    // 1: 'script start' 'script end'
+    // 2: 'promise1' .then 又产生一个 Microtask -> 'promise2'
+    // 3: 
+    // 1: 'setTimeout'
+
+    async function async1() {
+      console.log('async1 start');
+      await async2();
+      console.log('async1 end');
+    }
+    async function async2() {
+      console.log('async2');
+    }
+    console.log('script start');
+    setTimeout(function () {
+      console.log('setTimeout');
+    }, 0);
+    async1();
+    new Promise(function (resolve) {
+      console.log('promise1');
+      resolve();
+    })
+      .then(function () {
+        console.log('promise2');
+      });
+    console.log('script end');
+  // async await = 把这个任务放到 promise 的回调里面去
+  </script>
+</body>
+
+</html>

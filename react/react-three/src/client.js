@@ -1,4 +1,4 @@
-// console.log('dfsdf')
+// console.log('dfsdf');
 // var a = 1
 // document.body.innerHTML = a
 import * as React from 'react'

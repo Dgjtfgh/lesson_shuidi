@@ -64,4 +64,18 @@ ts
   eslint 代码风格的增长
 
   client.js  react 有什么让我么觉得不对劲的
-  地方? 
+  地方?
+
+  我们阶段就业   疫情  苟且红利
+   - 相信国家
+   - 信息自己
+   - 相信客户
+
+6 react  bind this
+  - bind
+  - constructor  this..... = this.....bind(this) 
+  - () =>   
+  - autoBind   babel  plugin   jsconfig.json 
+  
+- es6  class 关键字  基于原型， class 只是语法糖 
+  classProperties es7 新增

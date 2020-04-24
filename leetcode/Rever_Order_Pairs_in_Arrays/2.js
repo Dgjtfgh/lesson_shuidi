@@ -11,9 +11,11 @@ var reversePairs = function(nums) {
         let mid = parseInt(nums.length / 2),
             left = nums.slice(0, mid),
             right = nums.slice(mid);
+        // console.log(left, right, '---')
         return merge(points(left), points(right));
     }
     function merge(left, right) {
+        // console.log(left, right)
         let temp = [],
             leftlen = left.length,
             rightlen = right.length,
@@ -33,16 +35,17 @@ var reversePairs = function(nums) {
                 j += 1;
                 res += leftlen - i;
             } else {
-                temp[index] = right[i];
+                temp[index] = left[i];
                 i += 1;
             }
             index += 1;
         }
+        // console.log(res, temp)
         return temp;
     }
 };
 
 
-console.log(reversePairs([7,5,6,4]));
-console.log(reversePairs([7,2]));
-console.log(reversePairs([7]));
+// console.log(reversePairs([7,5,6,4]));
+// console.log(reversePairs([7,2]));
+console.log(reversePairs([1,3,2,3,1]));

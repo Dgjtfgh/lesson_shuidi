@@ -32,3 +32,14 @@ css
   style-loader 开发的时候
   定位p  color 错误， style 代码很多  你忘了错误在哪里
   webpack  帮我们定位错处 点一下就能跳到错误所在的源码所在行
+
+react 全家桶(react-router  redux) + ts
+1. react 全家桶比 vue 复杂  react-router-dom
+  一切皆组件
+  new Vue({
+    el: '#root',
+    router,
+    store
+  })
+  翻译成react
+  

@@ -7,3 +7,14 @@
 
 3. 全家桶
     react-router-dom  配置
+
+4. 每个组件的做法  func_component + style.js
+
+5. tabbar 怎么做
+    静态的  styled-components
+    动态的  redux + api
+
+6. 幻灯片  最佳实战
+    - 数据到位
+    - 加效果
+    - api

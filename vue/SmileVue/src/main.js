@@ -4,12 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import 'swiper/css/swiper.css'
+// Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
+
 // import Vant from 'vant'
 // import 'vant/lib/index.css'
 // Vue.use(Vant)
 
-import { Button } from 'vant'
-Vue.use(Button)
+import { Button, Row, Col, Swipe, SwipeItem, Lazyload } from 'vant'
+Vue.use(Button).use(Row).use(Col).use(Swipe).use(SwipeItem).use(Lazyload)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

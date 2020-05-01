@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name1: null
+        }
+        // 1. 意料之中的
+        try {
+            // obj.name1.a = 123;
+            setTimeout(() => {
+                obj.name1.a = 123;
+            })
+        } catch (error) {
+            console.log(error);
+        }
+        console.log(123);
+        console.log(456);
+        
+        // 2. 意料之外的  全局捕获(兜底)
+        window.addEventListener('error', function(err) {
+            console.log(err);
+            // 发送给后端
+        }, false)
+        // 事件模式(流)：捕获(Capture) 目标(Target) 冒泡(Bubbling)
+        
+        // 3. promise
+        new Promise((resolve, reject) => {
+            reject('error');
+        })
+        window.addEventListener('unhandledrejection', function(err) {
+            console.log(err);
+        })
+    </script>
+</body>
+</html>

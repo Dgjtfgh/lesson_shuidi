@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- api 请求有没有出错 -->
+    <!-- axios 基于 js 原生的 XMLhttprequest 封装出来的库
+    只要把 XMLhttprequest 监听请求完成的这个方法给他改掉
+    无论是  success  error  timeout
+    落脚点都是 原始api
+    axios 监听这些api -->
+    <button id="btn">按钮</button>
+    <script>
+        // document.getElementsById('btn').onclick
+        const _XMLHttprequest = XMLHttpRequest;
+        window.XMLHttpRequest = function() {
+            const xhr = new _XMLHttprequest();
+            // 参数传错  code: 400
+            xhr.addEventListener('error', (err) => {
+                console.log('xhr error', err);
+                // 整个服务器宕机
+            })
+            xhr.addEventListener('timeout', () => {
+                console.log('xhr timeout');
+            })
+            // on 和i能绑定 一个事件  可能会覆盖别人的事件
+            // addEventListener 能够绑定多个事件
+            xhr.addEventListener('readystatechange', () => {
+                // 4  资源下载完毕
+                if (xhr.readyState === 4) {
+                    if (xhr.status !== 200) {
+                        console.log('xhr error', xhr.status)
+                    }
+                }
+            })
+            // 改完时  还是能保证 生成 xhr
+            return xhr;
+        }
+
+    </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+        axios.get('http://neteasecloudmusicapi.zhaoboy.com/sea')
+        .then(res => {
+            console.log(res);
+        })
+    </script>
+</body>
+</html>

@@ -41,7 +41,7 @@
             <div class="recommend-item">
               <img :src="item.image" width="80%" />
               <div>{{item.goodsName}}</div>
-              <div>¥{{item.price}}(¥{{item.mallPrice}})</div>
+              <div>¥{{item.price | moneyFilter}}(¥{{item.mallPrice | moneyFilter}})</div>
             </div>
           </swiper-slide>
         </swiper>
@@ -77,7 +77,9 @@ import axios from "axios";
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import floorComponent from "../component/floorComponent";
-import goodsInfo from '../component/goodsInfoComponent';
+import goodsInfo from "../component/goodsInfoComponent";
+import { toMoney } from "@/filter/moneyFilter.js";
+import url from '@/serviceAPI.config.js'
 export default {
   data() {
     return {
@@ -93,28 +95,32 @@ export default {
       floor2: [],
       floor3: [],
       floorName: {},
-      hotGoods:[]
+      hotGoods: []
     };
   },
   components: { Swiper, SwiperSlide, floorComponent, goodsInfo },
+  filters: {
+    moneyFilter(money) {
+      return toMoney(money);
+    }
+  },
   created() {
     axios({
-      url:
-        "https://www.easy-mock.com/mock/5eabfa430a92d726eae93c81/shopping/index",
+      url: url.getShoppingMallInfo,
       method: "get"
     })
       .then(res => {
-        console.log(res);
+        // console.log(res);
         if (res.status == 200) {
           this.bannerPicArray = res.data.data.slides;
           this.category = res.data.data.category;
           this.adBanner = res.data.data.advertesPicture.PICTURE_ADDRESS;
           this.recommendGoods = res.data.data.recommend;
-          this.floor1 = response.data.data.floor1;
-          this.floor2 = response.data.data.floor2;
-          this.floor3 = response.data.data.floor3;
-          this.floorName = response.data.data.floorName;
-          this.hotGoods = response.data.data.hotGoods;
+          this.floor1 = res.data.data.floor1;
+          this.floor2 = res.data.data.floor2;
+          this.floor3 = res.data.data.floor3;
+          this.floorName = res.data.data.floorName;
+          this.hotGoods = res.data.data.hotGoods;
         }
       })
       .catch(err => {
@@ -184,5 +190,16 @@ export default {
   border-right: 1px solid #eee;
   font-size: 12px;
   text-align: center;
+}
+.hot-area {
+  text-align: center;
+  font-size: 14px;
+  height: 1.8rem;
+  line-height: 1.8rem;
+}
+.hot-goods {
+  height: 130rem;
+  overflow: hidden;
+  background-color: #fff;
 }
 </style>

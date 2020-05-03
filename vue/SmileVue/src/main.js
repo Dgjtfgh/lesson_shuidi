@@ -12,8 +12,8 @@ import router from './router'
 // import 'vant/lib/index.css'
 // Vue.use(Vant)
 
-import { Button, Row, Col, Swipe, SwipeItem, Lazyload, List, Field, NavBar } from 'vant'
-Vue.use(Button).use(Row).use(Col).use(Swipe).use(SwipeItem).use(Lazyload).use(List).use(Field).use(NavBar)
+import { Button, Row, Col, Swipe, SwipeItem, Lazyload, List, Field, NavBar, Tab, Tabs, PullRefresh, Tabbar,TabbarItem, Stepper  } from 'vant'
+Vue.use(Button).use(Row).use(Col).use(Swipe).use(SwipeItem).use(Lazyload).use(List).use(Field).use(NavBar).use(Tab).use(Tabs).use(Tabbar).use(TabbarItem).use(Stepper).use(PullRefresh)
 
 Vue.config.productionTip = false
 

@@ -112,15 +112,15 @@ export default {
       .then(res => {
         // console.log(res);
         if (res.status == 200) {
-          this.bannerPicArray = res.data.data.slides;
-          this.category = res.data.data.category;
-          this.adBanner = res.data.data.advertesPicture.PICTURE_ADDRESS;
-          this.recommendGoods = res.data.data.recommend;
-          this.floor1 = res.data.data.floor1;
-          this.floor2 = res.data.data.floor2;
-          this.floor3 = res.data.data.floor3;
-          this.floorName = res.data.data.floorName;
-          this.hotGoods = res.data.data.hotGoods;
+          this.bannerPicArray = res.data.slides;
+          this.category = res.data.category;
+          this.adBanner = res.data.advertesPicture.PICTURE_ADDRESS;
+          this.recommendGoods = res.data.recommend;
+          this.floor1 = res.data.floor1;
+          this.floor2 = res.data.floor2;
+          this.floor3 = res.data.floor3;
+          this.floorName = res.data.floorName;
+          this.hotGoods = res.data.hotGoods;
         }
       })
       .catch(err => {

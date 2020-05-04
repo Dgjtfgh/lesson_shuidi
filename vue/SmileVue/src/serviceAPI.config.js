@@ -1,7 +1,8 @@
-const BASEURL = "https://www.easy-mock.com/mock/5eabfa430a92d726eae93c81/shopping";
-const LOCALURL = "http://localhost:3000/";
+
+const BASEURL = "http://localhost:3000/data/";  // json-server
+const LOCALURL = "http://localhost:3300/";      // mongodb数据库
 const URL = {
-    getShoppingMallInfo:BASEURL+'index',   // 首页
+    getShoppingMallInfo:BASEURL,   // 首页
     // getGoodsInfo:BASEURL+'getGoodsInfo',
     registerUser:LOCALURL+'user/register',  // 注册
     login:LOCALURL+'user/login',   // 登录

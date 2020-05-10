@@ -152,7 +152,7 @@ export default {
             wx.navigateTo({
                 url: '/pages/goods/main?id=' + id
             }) 
-        }
+        } 
     }
 }
 </script>

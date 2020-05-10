@@ -197,9 +197,9 @@ export default {
         goodsId: this.goodsId
       })
     },
-    toCart () {
+    toCart () {  
       wx.switchTab({
-        url: '/pages/shop_cart/main'
+        url: '/pages/cart/main'
       });
     },
     async buy () {
@@ -222,7 +222,7 @@ export default {
         console.log(data)
         if (data) {
           wx.navigateTo({
-            url: '/pages/order/main'
+            url: "/pages/order/main?goodsId=" + goodsId
           });
             
         }
@@ -242,7 +242,7 @@ export default {
           })
           return false
         }
-        const data = await post('cart/addCart', {
+        const data = await post('/cart/addCart', {
           openId: this.openId,
           goodsId: this.goodsId,
           number: this.number

@@ -4,7 +4,7 @@
     "pages/search/main",
     "pages/topic/main",
     "pages/classify/main",
-    "pages/shop_cart/main",
+    "pages/cart/main",
     "pages/my/main",
     "pages/mappage/main",
     "pages/brandlist/main",
@@ -50,7 +50,7 @@
         "text": "分类"
       },
       {
-        "pagePath": "pages/shop_cart/main",
+        "pagePath": "pages/cart/main",
         "iconPath": "static/images/ic_shopcart.png",
         "selectedIconPath": "static/images/ic_shopcart_choice.png",
         "text": "购物车"

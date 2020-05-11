@@ -1,0 +1,12 @@
+{
+  "name": "network",
+  "version": "1.0.0",
+  "description": "- 请问 web 交互的数据格式是什么？ \r   有没有方法, 在用户请求时, 提供多种数据返回格式选择？\r   ajax  json / html\r   传统老的浏览器   返回 text/html\r   动态web         返回 text/json",
+  "main": "replay.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

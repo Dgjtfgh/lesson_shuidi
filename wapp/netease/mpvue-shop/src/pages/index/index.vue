@@ -41,13 +41,13 @@
       <div class="newgoods-top" @click="goodsLists('new')">
         <div class="top">
           <p>新品首发</p>
-          <p>查看全部</p>
+          <p>查看全部</p> 
         </div>
       </div>
       <div class="list">
         <ul>
           <scroll-view class="scroll-view" :scroll-x="true">
-            <li v-for="(item, index) in newGoods" :key="index">
+            <li v-for="(item, index) in newGoods" :key="index" @click="goodsDetail(item.id)">
               <img :src="item.list_pic_url" alt="">
               <p>{{item.name}}</p>
               <p>{{item.goods_brief}}</p>
@@ -71,7 +71,7 @@
       <div class="list">
         <ul>
           <scroll-view class="scroll-view" :scroll-x="true">
-            <li v-for="(item, index) in hotGoods" :key="index">
+            <li v-for="(item, index) in hotGoods" :key="index" @click="goodsDetail(item.id)">
               <img :src="item.list_pic_url" alt="">
               <p>{{item.name}}</p>
               <p>{{item.goods_brief}}</p>
@@ -100,10 +100,6 @@ export default {
   },
   computed: {
     ...mapState(['cityName'])
-  },
-
-  components: {
-    
   },
   mounted() {
     this.getData();
@@ -143,7 +139,8 @@ export default {
       myAmapFun.getRegeo({
         success: function (data) {
           // 成功回调
-          console.log(data);
+          _this.update(data);
+          // console.log(data, 'cs');
         },
         fail: function (info) {
           // 失败回调
@@ -154,7 +151,7 @@ export default {
     },
     async getData() {
       const data = await get('/index/index');   // http://localhost:1314/xwk/index/index
-      console.log(data);
+      // console.log(data);
       this.banner = data.banner;
       this.channel = data.channel;
       this.brandList = data.brandList;
@@ -191,7 +188,12 @@ export default {
           url: '/pages/newgoods/main?isNew=' + 1
         })
       }
-    }
+    },
+    goodsDetail(id) {
+      wx.navigateTo({
+        url: '/pages/goods/main?id=' + id
+      }) 
+    } 
   }
 }
 </script>

@@ -3,14 +3,18 @@
     "pages/index/main",
     "pages/search/main",
     "pages/topic/main",
-    "pages/classify/main",
+    "pages/topicdetail/main",
+    "pages/category/main",
+    "pages/categroylist/main",
     "pages/cart/main",
     "pages/my/main",
     "pages/mappage/main",
     "pages/brandlist/main",
     "pages/newgoods/main",
     "pages/goods/main",
-    "pages/order/main"
+    "pages/order/main",
+    "pages/addressSelect/main",
+    "pages/addaddress/main"
     
   ],
   "permission": {
@@ -44,7 +48,7 @@
         "text": "专题"
       },
       {
-        "pagePath": "pages/classify/main",
+        "pagePath": "pages/category/main",
         "iconPath": "static/images/ic_classify.png",
         "selectedIconPath": "static/images/ic_classify_choice.png",
         "text": "分类"

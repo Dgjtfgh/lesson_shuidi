@@ -10,7 +10,7 @@ const store = new Vuex.Store({
     mutations: {
         update (state, config) {
             Object.keys(config).map((item, key) => {
-                state[item] = config[item]
+                state.cityName = config[item].regeocodeData.addressComponent.city;
             })
         }
     }

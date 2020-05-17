@@ -64,15 +64,20 @@ export default {
     },
     changeColor(index, item) {
       if (this.Listids[index]) {
-        this.$set(this.Listids, index, false);
+        this.allPrice -= this.Listids[index].retail_price*this.Listids[index].number;
+        this.$set(this.Listids, index, null);
+        
       } else {
         this.$set(this.Listids, index, item);
+        this.allPrice += this.Listids[index].retail_price*this.Listids[index].number;
       }
       console.log(this.Listids)
+      // console.log(this.allPrice)
     },
     allCheck() {
       // 先清空选择
-      // this.Listids = [];
+      this.Listids = [];
+      this.allPrice = 0;
       if (this.allcheck) {
         this.allcheck = false;
       } else {
@@ -80,12 +85,22 @@ export default {
         // 全部选择
         for (let i = 0; i < this.listData.length; i++) {
           const element = this.listData[i];
-          this.Listids.push(element.goods_id);
+          this.Listids.push(element);
+          this.allPrice += element.retail_price*element.number;
         }
       }
     },
     async orderDown() {
-      if (this.Listids.length === 0) {
+      console.log(this.Listids.length)
+      // 去除数组中空的false
+      let newgoodsid = [];
+      for (let i = 0; i < this.Listids.length; i++) {
+        const element = this.Listids[i];
+        if (element) {
+          newgoodsid.push(element.goods_id);
+        }
+      }
+      if (newgoodsid.length === 0) {
         wx.showToast({
           title: "请选择商品",
           icon: "none",
@@ -93,23 +108,17 @@ export default {
         });
         return false;
       }
-      // 去除数组中空的false
-      let newgoodsid = [];
-      for (let i = 0; i < this.Listids.length; i++) {
-        const element = this.Listids[i];
-        if (element) {
-          newgoodsid.push(element);
-        }
-      }
+      console.log(newgoodsid, 'newgoods')
       let goodsId = newgoodsid.join(",");
       const data = await post("/order/submitAction", {
         goodsId: goodsId,
         openId: this.openId,
         allPrice: this.allPrice
       });
+      console.log(goodsId, 'id')
       if (data) {
         wx.navigateTo({
-          url: "/pages/order/main?goodsId=" + goodsId
+          url: "/pages/order/main"
         });
       }
     }

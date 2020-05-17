@@ -11,14 +11,14 @@ export default {
      */
     var userInfo = {
       openId: "oQmbb4sNZdxaUQZ0sfYgvtOP2S7c",
-      nickName: "蜗牛",
+      nickName: "凯",
       gender: 1,
       language: "zh_CN",
       city: "Changping",
       province: "Beijing",
       country: "China",
       avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIbWFEIJj8IpGeHM7dGic1aTFZALjWcMm9ltWfFiaQfVRYticWBfgGfzXWMt2EkJWiaicPtftHAlWxUibxQ/132",
-      watermark: { timestamp: 1535513485, appid: "wx601ce71bde7b9add" }
+      watermark: { timestamp: 1535513485, appid: "wxe897f6db35105fc8" }
     };
     var openId = userInfo.openId;
     wx.setStorageSync("userInfo", userInfo);

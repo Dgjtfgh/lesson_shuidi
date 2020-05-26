@@ -1,32 +1,38 @@
 const css = require('css');
+const fs = require('fs');
 const match = require('./match');
+const layout = require('./layout');
+const render = require('./render');
+const images = require('images');
 let htmlStr = `<html>
- <head>
-   <style>
-   body div #myid {
-    width: 100px;
-    background-color: #fff; 
-   }
-   .icon {
-       width: 100px;
-   }
-   .text {
-    color: #888;
-   }
-   span {
-    font-size: 30px;
-   }
-   </style>
- </head>
- <body>
-    <div>
-      123
-      <div id="myid">
-        <img class="icon" />
-        <span class="text" ></span>
-      </div>
+<head>
+    <style>
+    #myid{
+      width:500px;
+      display: flex;
+      background-color: rgb(0, 0, 255);
+      align-items: center;
+      justify-content: center;
+      height: 500px;
+    }
+    .box1 {
+      width: 200px;
+      height: 100px;
+      background-color: rgb(255, 0, 0);
+    }
+    .box2 {
+      width: 200px;
+      height: 200px;
+      background-color: rgb(0, 255, 0);
+    }
+    </style>
+</head>
+<body>
+    <div id="myid">
+      <div class="box1"></div>
+      <div class="box2"></div>
     </div>
- </body>
+</body>
 </html>
 `;
 // 词法分析：
@@ -183,7 +189,7 @@ function attribuateValue(c) {
     if (c === '\"' || c === '\"') {
         // "" 
         return attribuateValue;
-    } else if (c.match(/^[a-zA-Z]$/)) {
+    } else if (c.match(/^[a-zA-Z0-9]$/)) {
         currentAttribuate.value += c;
         return attribuateValue;
     } else {
@@ -214,8 +220,12 @@ function endTagOpen(c) {
         return start;
     }
 }
-
+let dom = stack[0];
+const viewport = images(800, 600);
+render(viewport, dom);
+viewport.save('render.jpg');
 console.log(JSON.stringify(stack, null, 2));
+// fs.writeFileSync('./dom.json', JSON.stringify(stack, null, 2));
 function emit(token) {
     // console.log(token);
     let top = stack[stack.length - 1];
@@ -233,12 +243,14 @@ function emit(token) {
         stack.push(element);
         currentTextNode = null;
     } else if (token.tag === 'endTag') {
-        if (top.tagName === token.tagName) {
-            stack.pop();
+        if (top.tagName === token.tagName) {            
             currentTextNode = null;
             if (top.tagName === 'style') {
                 addCSSrule(top.children[0].content);
             }
+            // layout 这一步 依赖子元素信息
+            layout(top);
+            stack.pop();
         } else {
             throw new Error('no match');
         }

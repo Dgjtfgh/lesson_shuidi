@@ -32,9 +32,13 @@
 // }
 
 // 4. defineProperty
-Object.defineProperty(window, 'a', {  
+Object.defineProperty(window, 'a', { // 浏览器中运行
     get: function() {
-        return this.value += 1;
+        if (this.value) {
+            return this.value += 1;
+        } else {
+            return this.value = 1;
+        }
     }
 })
 

@@ -2,66 +2,142 @@
     "indexPage": {
         "navData": [
             {
-                "id": "1",
+                "id": "0",
                 "name": "推荐"
               },{
-                "id": "2",
-                "name": "12.12"
-              },{
-                "id": "3",
+                "id": "1",
                 "name": "新品"
               },{
-                "id": "4",
+                "id": "2",
                 "name": "人气"
               },{
-                "id": "5",
+                "id": "3",
                 "name": "球鞋"
               },{
-                "id": "6",
+                "id": "4",
                 "name": "冬装"
               },{
-                "id": "7",
+                "id": "5",
                 "name": "冬靴"
               },{
-                "id": "8",
+                "id": "6",
                 "name": "手表"
               },{
-                "id": "9",
+                "id": "7",
                 "name": "潮物"
               },{
-                "id": "10",
+                "id": "8",
                 "name": "女神"
               },{
-                "id": "11",
+                "id": "9",
+                "name": "卫衣"
+              },{
+                "id": "10",
                 "name": "夹克"
               },{
-                "id": "12",
+                "id": "11",
                 "name": "裤装"
               },{
-               " id": "13",
+                "id": "12",
                 "name": "秋装"
               },{
-                "id": "14",
+                "id": "13",
                 "name": "国潮"
               },{
-                "id": "15",
+                "id": "14",
                 "name": "箱包"
               },{
-                "id": "16",
+                "id": "15",
                 "name": "数码"
               },{
-                " id": "17",
+                 "id": "16",
                  "name": "帆布"
                },{
-                 "id": "18",
+                 "id": "17",
                  "name": "配件"
                },{
-                 "id": "19",
+                 "id": "18",
                  "name": "篮球"
                },{
-                 "id": "20",
+                 "id": "19",
                  "name": "童鞋"
                }
+        ],
+        "productData": [
+          {
+            "id": "0",
+            "imageUrl": "https://img0.52xie.com/images/201706/thumb_img/34063_thumb_G_1524777071.jpg",
+            "name": "Air Jordan"
+          },{
+            "id": "1",
+            "imageUrl": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3893583434,3331329931&fm=26&gp=0.jpg",
+            "name": "Yeezy"
+          },{
+            "id": "2",
+            "imageUrl": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1308894334,965021165&fm=26&gp=0.jpg",
+            "name": "Air Force"
+          },{
+            "id": "3",
+            "imageUrl": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1264430754,1669496805&fm=26&gp=0.jpg",
+            "name": "Converse"
+          },{
+            "id": "4",
+            "imageUrl": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4099578702,4232375931&fm=15&gp=0.jpg",
+            "name": "潮流品牌"
+          },{
+            "id": "5",
+            "imageUrl": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1939073392,3485962987&fm=26&gp=0.jpg",
+            "name": "数码潮玩"
+          },{
+            "id": "6",
+            "imageUrl": "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1881951988,3934028913&fm=15&gp=0.jpg",
+            "name": "圣诞礼物"
+          },{
+            "id": "7",
+            "imageUrl": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2901288688,3368048874&fm=26&gp=0.jpg",
+            "name": "全部"
+          }
         ]
+    },
+    "searchPage": {
+      "hotwordsData": [
+          {"hotword": "丝绸"},
+          {"hotword": "红外线"},
+          {"hotword": "权志龙"},
+          {"hotword": "黑天使"},
+          {"hotword": "圣诞口红"},
+          {"hotword": "AJI"},
+          {"hotword": "OFF-WHITE"},
+          {"hotword": "羽绒服"}
+      ]
+    },
+    "classilyPage": {
+      "navData": [
+        {
+          "id": "0",
+          "name": "品牌"
+        },{
+          "id": "1",
+          "name": "系列"
+        },{
+          "id": "2",
+          "name": "球鞋"
+        },{
+          "id": "3",
+          "name": "潮搭"
+        },{
+          "id": "4",
+          "name": "潮玩"
+        },{
+          "id": "5",
+          "name": "数码"
+        },{
+          "id": "6",
+          "name": "箱包"
+        },{
+          "id": "7",
+          "name": "美妆"
+        }
+      ]
     }
 }

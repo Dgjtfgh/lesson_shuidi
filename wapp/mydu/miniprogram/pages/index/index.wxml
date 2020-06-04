@@ -1,23 +1,95 @@
 
-<view class="media-box__topbox">
 <view class="media-box_top">
-  <navigator class="media-box__search" url=""> 
+  <navigator hover-class="none" class="media-box__search" url="../search/search" open-type="navigate"> 
     <view class="media-box_search__tb">
-      <image  src="search.png"></image>
+      <image  src="../images/search.png"></image>
     </view> 
     <view class="text">搜索单品</view>
   </navigator>
-  <navigator class="media-box_classify" url="">
-    <image class="media-box_classify__thumb" src="ALL.png"></image>
+  <navigator hover-class="none" class="media-box_classify" url="../classily/classily" open-type="navigate">
+    <image class="media-box_classify__thumb" src="../images/ALL.png"></image>
   </navigator>
 </view>
+<!-- 导航栏 -->
 <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}" >
-  <block wx:for="{{navData}}" wx:for-index="id" wx:for-item="navItem" wx:key="id">
+  <block wx:for="{{navData}}" wx:for-index="id" wx:for-item="navItem" wx:key="navItem">
       <view class="nav-item {{currentTab == id?'active':''}}" data-name="{{navItem.name}}" data-current="{{id}}" bindtap="switchNav">{{navItem.name}}</view>
   </block>
 </scroll-view>
-</view>
-<view class="media-bigbox" >
+
+<!-- 内容 -->
+<view class="contain">
+<block wx:if="{{currentTab == 0}}">
+  <view class="show">
+    <!-- <swiper class="swiperShow">
+      <swiper-item>
+        <image class="swiper_icon" src="https://graph.baidu.com/thumb/3303320886,950762010.jpg"></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="swiper_icon" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4283353066,3342894557&fm=15&gp=0.jpg"></image>
+      </swiper-item>
+      <swiper-item>
+        <image class="swiper_icon" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4266687595,601639340&fm=15&gp=0.jpg"></image>
+      </swiper-item>
+    </swiper> -->
+    <view class="swiperShow">
+      <image class="swiper_icon" src="../images/introduction.png"></image>
+    </view>
+    <view class="introduced_box">
+      <navigator hover-class="none" class="introduced" url="">
+        <view class="introducedBox_icon">
+          <image class="introduced_icon" src="../images/pro.png" ></image>
+        </view>
+        <text class="introduced_title">正品保障</text>
+      </navigator>
+      <navigator hover-class="none" class="introduced" url="">
+        <view class="introducedBox_icon">
+          <image class="introduced_icon" src="../images/insp.png" ></image>
+        </view>
+        <text class="introduced_title">逐件检查</text>
+      </navigator>
+      <navigator hover-class="none" class="introduced" url="">
+        <view class="introducedBox_icon">
+          <image class="introduced_icon" src="../images/mult_iden.png" ></image>
+        </view>
+        <text class="introduced_title">多重鉴别</text>
+      </navigator>
+    </view>
+    <view class="products_box">
+      <navigator hover-class="none" class="product" wx:for="{{productData}}" wx:for-index="id" wx:for-item="productItem">
+        <view class="product_iconbox">
+          <image class="product_icon" src="{{productItem.imageUrl}}"></image>
+        </view>
+        <view class="product_title">{{productItem.name}}</view>
+      </navigator>
+    </view>
+    <view class="activity_box">
+      <navigator hover-class="none" class="activity">
+        <view class="leftbox_left">
+          <span id="title">砍价</span>
+          <text class="current_price">-¥300</text>
+          <text class="original_price">¥4379</text>
+        </view>
+        <view class="leftbox_right">
+          <image class="activity_icon" src="https://g-search2.alicdn.com/img/bao/uploaded/i4/i4/1761446060/O1CN015i0YYy1udWjUI8kEl_!!0-item_pic.jpg_230x230.jpg"></image>
+        </view>
+      </navigator>
+      <navigator hover-class="none" class="activity">
+        <view class="rightbox_left">
+          <span id="title_l">最新发售</span>
+          <text class="product_name">Nike Air Max 270 React SP 白红</text>
+        </view>
+        <view class="rightbox_right">
+          <span id="title_r"> <spec>12</spec>DEC</span>
+          <image class="activity_icon" src="https://g-search3.alicdn.com/img/bao/uploaded/i4/i4/753969079/O1CN01q3gMpV2GwERdfilTu_!!0-item_pic.jpg_230x230.jpg_.webp"></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</block>
+<block wx:for="{{navData}}" wx:for-index="id" wx:for-item="navItem" wx:key="navItem">
+  <block wx:if="{{currentTab == id}}">
+<view class="content">
 <view 
 wx:for="{{goods}}" wx:for-item="goodsItem"
 class="media-box">
@@ -32,4 +104,7 @@ class="media-box">
     </view>
   </view>
 </view>
+</view>
+ </block>
+</block>
 </view>

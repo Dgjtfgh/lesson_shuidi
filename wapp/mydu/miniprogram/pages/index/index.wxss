@@ -2,27 +2,23 @@
 page {
   margin: 0;
   padding: 0;
+  background-color: #F5F4F9;
 }
-.media-box__topbox{
-  width: 100vw;
-  height: 12vh;
-  position: flex;
-  top: 0;
-  left: 0;
-  z-index: 999;
-}
+/* 搜索框 */
 .media-box_top{
   width: 100vw;
-  height: 5vh;
-  margin: 20rpx 0;
-  /* background-color: yellow; */
+  height: 60rpx;
+  padding: 14rpx 0;
+  background-color: #FFFFFF;
+  position: fixed;
+  top: 0;
+  z-index: 99;
   display: flex; 
 }
 .media-box__search{
-  margin-left: 30rpx;
-  padding-left: 15rpx;
-  width: 90%;
-  height: 100%;
+  margin-left: 38rpx;
+  width: 588rpx;
+  height: 60rpx;
   line-height: 82rpx;
   color: #ABAABB;
   background-color: #f5f4f9;
@@ -31,6 +27,7 @@ page {
   /* background-color: green; */
 }
 .media-box_search__tb{
+  margin-left: 26rpx;
   width: 50rpx;
   height: 50rpx;
  
@@ -44,9 +41,8 @@ page {
   line-height: 65rpx;
 }
 .media-box_classify{
-  width: 10%;
-  margin: 0 15rpx;
-  padding: 0 10rpx;
+  width: 65rpx;
+  margin: 0 28.5rpx;
   box-sizing:border-box;
   /* background-color: blue; */
 }
@@ -54,87 +50,246 @@ page {
   width: 100%;
   height: 100%;
 }
+/* 导航栏 */
 .nav {
-  height: 45%;
+  height: 95rpx;
   width: 100%;
-  /* position: fixed; */
   box-sizing: border-box;
   overflow: hidden;
-  line-height: 100%;
+  line-height: 87rpx;
   background-color: #FFFFFF;
-  font-style: .9rem;
+  font-size: .93rem;
   white-space: nowrap;
-  /* top: 0; */
-  /* left: 100rpx; */
-  /* right: 100rpx; */
-  /* z-index: 99; */
-  margin-top: 30rpx;
-  /* margin-bottom: 20rpx; */
+  padding-top: 25rpx, 0;
+  padding-right: 41rpx;
+  position: fixed;
+  top: 74rpx;
+  z-index: 999;
 }
 .nav-item {
   display: inline-block;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
+  margin-left: 41rpx;
   text-align: center;
   color: #ABAABB;
 }
 .nav-item.active {
   color: #000000;
+  font-weight: bold;
 }
-.media-bigbox{
+/* 展示模块 */
+.contain{
   width: 100vw;
-  /* height: 85vh; */
-  background-color: #F5F4F9;
+  position: absolute;
+  top: 169rpx;
+  /* margin-top: 169rpx; */
+}
+.show{
+  /* margin-top: 169rpx; */
+  width: 100vw;
+  height: 890rpx;
+}
+/* 滑块展示 */
+.swiperShow{
+  width: 100vw;
+  height: 250rpx;
+}
+.swiper_icon{
+  width: 100%;
+  height: 245rpx;
+}
+/* 信息介绍 */
+.introduced_box{
+  width: 100vw;
+  height: 87rpx;
+  background-color: #ffffff;
+  display: flex;
+}
+.introduced{
+  width: 250rpx;
+  height: 87rpx;
+  padding-top: 25rpx;
+  box-sizing:border-box;
+  display: flex;
+}
+.introducedBox_icon{
+  margin-left: 38rpx;
+  height: 32rpx;
+  width: 32rpx;
+}
+.introduced_icon{
+  width: 100%;
+  height: 100%;
+}
+.introduced_title{
+  font-size: 24rpx;
+  margin-left: 8rpx;
+  line-height: 50rpx;
+}
+/* 产品展示 */
+.products_box{
+  width: 100vw;
+  height: 298rpx;
+  box-sizing:border-box;
+  background-color: #ffffff;
+  border-bottom: 1px solid #F5F5F9;
+  border-top: 1px solid #F5F5F9;
+  display: flex;
+  flex-wrap: wrap;
+}
+.product{
+  box-sizing:border-box;
+  width: 25vw;
+  height: 149rpx;
+  margin-top: 5rpx;
+}
+.product_iconbox{
+  width: 100%;
+  height: 92rpx;
+}
+.product_icon{
+  width: 70%;
+  height: 100%;
+  margin-left: 30rpx;
+}
+.product_title{
+  font-size: 25rpx;
+  text-align: center;
+}
+/* 活动信息展示 */
+.activity_box{
+  width: 100vw;
+  height: 255rpx;
+  box-sizing:border-box;
+  border-top: 1px solid #F5F5F9;
+  border-bottom: 1px solid #F5F5F9;
+  display: flex;
+}
+.activity{
+  width: 50vw;
+  height: 255rpx;
+  line-height: 26rpx;
+  padding-top: 40rpx;
+  padding-left: 30rpx;
+  background-color: #fff;
+  box-sizing:border-box;
+  display: flex;
+}
+.activity .leftbox_left{
+  width: 110rpx;
+  height: 255rpx;
+  /* line-height: 26rpx; */
+  box-sizing: border-box;
+}
+.activity .leftbox_left .current_price{
+  color: red;
+  /* line-height: 16rpx; */
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 100rpx;
+}
+.activity .leftbox_left .original_price{
+  color: #ABAABB;
+  text-decoration: line-through;
+  font-size: 20rpx;
+}
+.activity .leftbox_right{
+  width: 235rpx;
+  height: 215rpx;
+  box-sizing: border-box;
+}
+.activity .leftbox_right .activity_icon{
+  width: 100%;
+  height: 100%;
+}
+.activity .rightbox_left{
+  width: 170rpx;
+}
+.activity .rightbox_left .product_name{
+  font-size: 20rpx;
+  display: block;
+  margin-top: 90rpx;
+  color: #000000;
+}
+.activity .rightbox_right{
+  width: 195rpx;
+  height: 215rpx;
+  text-align: right;
+  /* background-color: blue; */
+}
+#title_r{
+  font-size: 0.7rem;
+  margin-right: 20rpx;
+}
+#title_r spec{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.activity .rightbox_right .activity_icon{
+  width: 100%;
+  height: 185rpx;
+}
+/* 商品 */
+.content{
+  width: 100vw;
+  padding-top: 20rpx;
+  /* margin-top: 20rpx; */
   display: flex;
   /* 子元素总宽度超过父元素宽度时换行显示 */
   flex-wrap: wrap;
 } 
 .media-box{
   width: 50vw;
-  height: 30vh;
-  background-color: #fff;
-  border: 0.5px solid #f5f4f9;
+  height: 460rpx;
+  background-color: #FFFFFF;
+  border: 0.5rpx solid #f5f4f9;
   box-sizing:border-box;
   display: inline-block;
 }
 .media-box__thumb{
-  padding-left: 8rpx;
-  margin: 4rpx;
-  width: 90%;
+  height: 260rpx;
+  /* margin: 4rpx; */
 }
 .media-box__hd{
-  padding: 2rpx;
-  height: 70%;
+  /* padding: 2rpx; */
+  width: 100%;
+  height: 260rpx;
+  /* background-color: blue; */
+  box-sizing:border-box;
 }
 .media-box__bd{
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
+  box-sizing:border-box;
+  /* background-color: green; */
   width: 100%;
-  height: 34%;
+  height: 160rpx;
 }
 .media-box__title{
-  width: 100%;
-  font-size: 80%;
-  text-align: center;
+  width: 306rpx;
+  height: 82rpx;
+  font-size: 27rpx;
+  box-sizing:border-box;
+  display: block;
+  white-space: pre-line;
+  /* background-color: green; */
 }
 .media-box__desc{
   width: 100%;
+  height: 76rpx;
+  margin-bottom: 16rpx;
+  box-sizing:border-box;
   display: flex;
 }
 .media-box__price{
-  /* padding-left: 0.2rem; */
   width: 50%;
   color: #000;
-  line-height: 1.7rem;
+  font-size: 32rpx;
+  line-height: 70rpx;
 }
 .media-box__price symbol{
-  font-size: .55rem;
+  font-size: .6rem;
 }
 .media-box__sc{
-  /* padding-top: 0.7rem; */
-  /* padding-right: .5rem; */
   width: 50%;
   text-align: right;
-  font-size: .55rem;
-  line-height: 1.7rem;
+  font-size: .6rem;
+  line-height: 70rpx;
 }

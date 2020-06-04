@@ -1,0 +1,69 @@
+/* pages/classily/classily.wxss */
+page {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+  }
+  /* 搜索框 */
+  .media-box_top{
+    width: 100vw;
+    height: 60rpx;
+    padding: 14rpx 0;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
+  .media-box__search{
+    margin-left: 18rpx;
+    width: 714rpx;
+    height: 60rpx;
+    line-height: 82rpx;
+    color: #ABAABB;
+    background-color: #f5f4f9;
+    box-sizing:border-box;
+    display: flex;
+  }
+  .media-box_search__tb{
+    margin-left: 265rpx;
+    width: 50rpx;
+    height: 50rpx;
+   
+  }
+  .media-box_search__tb image{
+    width: 100%;
+    height: 100%;
+  }
+  .text{
+    font-size: 80%;
+    line-height: 65rpx;
+  }
+
+  /* 导航栏 */
+.nav {
+    width: 184rpx;
+    position: absolute;
+    top: 84rpx;
+    background-color: #FFFFFF;
+    font-size: .93rem;
+    
+  }
+  .nav-item {
+    width: 100%;
+    height: 122rpx;
+    line-height: 122rpx;
+    text-align: center;
+    color: #000000;
+    background-color: #f5f4f9;
+  }
+  .nav-item.active {
+    color: #5bc0c5;
+    background-color: #fff;
+    font-weight: bold;
+  }
+
+  /* 内容 */
+  .content {
+      position: absolute;
+      top: 84rpx;
+      left: 122rpx;
+  }

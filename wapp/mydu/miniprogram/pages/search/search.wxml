@@ -1,0 +1,54 @@
+<view class="header">
+<!-- 搜索框 -->
+<view class="search_box">
+    <image class="search_icon" src="../images/search.png"></image>
+    <input class="search_text" type="text" focus="true" confirm-type="search" bindconfirm="searchKey" name="search_text" id="search" value="{{input_value}}" placeholder="输入商品名称、货号" placeholder-style="color:#b1b1be;" focus/>
+    <view class="cancel" wx:if="{{input_state}}" bindtap='cancel'>x</view>
+</view>
+<!-- 筛选盒子 -->
+<view class="selects" wx:if="{{input_state}}">
+    <view data-current="1" class="sales {{currentTab == 1?'active':''}}" bindtap="selectNav">销量</view>
+    <view data-current="2" class="price {{currentTab == 2?'active':''}}" bindtap="selectNav">价格</view>
+    <view data-current="3" class="new {{currentTab == 3?'active':''}}" bindtap="selectNav">新品</view>
+    <view data-current="4" class="size" bindtap="selectNav">尺码</view>
+</view>
+</view>
+<!-- 内容 -->
+<view class="search_content" wx:if="{{input_state == false}}">
+<!-- 热门搜索盒子 -->
+<view class='hotBox'>
+<text class='hotSearch'>热门搜索</text>
+<!-- 搜索词盒子 -->
+<view class='hotKeyword'>
+<!-- 热门搜索词 -->
+<text wx:for='{{hotwordsData}}' wx:for-item="hotwordsData" wx:key="{{index}}" data-text="{{hotwordsData.hotword}}" bindtap='searchKey'>{{hotwordsData.hotword}}</text>
+</view>
+</view>
+<!-- 历史搜索盒子 -->
+<view class='historyBox'>
+<text class='historySearch'>历史搜索</text>
+<!-- 历史搜索词盒子 -->
+<view class='historyKeyword'>
+<!-- 历史搜索词 -->
+<text wx:for='{{historysearchData}}' wx:key="{{item}}" data-text="{{item}}" bindtap='searchKey'>{{item}}</text>
+</view>
+</view>
+</view>
+
+<!-- 商品 -->
+<view class="product_content" wx:if="{{input_state}}">
+<view 
+wx:for="{{goods}}" wx:for-item="goodsItem"
+class="media-box">
+  <view class="media-box__hd">
+    <image class="media-box__thumb" src="{{goodsItem.imageUrl}}"></image>
+  </view>
+  <view class="media-box__bd">
+    <view class="media-box__title">{{goodsItem.title}}</view>
+    <view class="media-box__desc">
+      <view class="media-box__price"><symbol>¥</symbol>{{goodsItem.price}}</view>
+      <view class="media-box__sc">{{goodsItem.sale_number}}人付款</view>
+    </view>
+  </view>
+</view>
+</view>

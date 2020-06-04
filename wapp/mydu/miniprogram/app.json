@@ -3,6 +3,8 @@
     "pages/index/index",
     "pages/inquire/inquire",
     "pages/user/user",
+    "pages/search/search",
+    "pages/classily/classily",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -20,7 +22,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "毒APP",
+    "navigationBarTitleText": "得物APP",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
@@ -34,12 +36,6 @@
         "pagePath": "pages/index/index",
         "iconPath": "images/shop.png",
         "selectedIconPath": "images/shop-active.png"
-      },
-      {
-        "text": "鉴别查询",
-        "pagePath": "pages/inquire/inquire",
-        "iconPath": "images/dif.png",
-        "selectedIconPath": "images/dif-active.png"
       },
       {
         "text": "我",

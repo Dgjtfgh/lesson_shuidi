@@ -18,3 +18,9 @@ URL  浏览器  发生了什么
 1. node 插入一条qrcode 记录， {qrcode_id, expires_at, create_at}  生成二维码图片
 2. PC端的登录页面，二维码  显示出来
 3. 扫码  得到 qrcodeId  使用 postmon 来模拟
+4. 手机端  登录状态    表单  postman 模拟
+    - 注册 -> 登录  cookie   jwt  token
+5. 手机扫码   走服务器端，将 qrcodeId 跟 token 结合
+    手机端 带着 token 访问 /qrcode/scanned
+6. 手机端会出来一个 授权  或 取消的页面    qrcode  记录还要等待被刷新
+7. 轮询 

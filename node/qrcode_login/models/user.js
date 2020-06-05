@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     username: String,
     password: String,
+    avatar: String,
     // token  在 client 端 localStorage.setItem() 存放
     token: String
 })

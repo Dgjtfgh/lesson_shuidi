@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     function func() {
+    //         // 非严格模式下
+    //         // 指向包装类
+    //         console.log(this);
+    //     }
+    //     func.call(null);
+    //     func.apply(1);
+    //     func.bind(1)();
+
+    var personLike = {
+        0: '张三',
+        1: '高手',
+        length: 2
+    }
+    // 给personLike 添加两个值  他的key无所谓
+    Array.prototype.push.call(personLike, '牛逼', '无敌')
+    console.log(personLike)
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 600px;
+            border: 1px solid #000;
+        }
+        .child {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="child"></div>
+    </div>
+    <script>
+        function paddingNum(num) {
+            num = num + "";
+            let temp = [];
+            let flag = 0;
+            let index = num.indexOf('.');
+            if (index !== -1) {
+                temp.unshift(num.slice(index));
+            } else {
+                index = num.length-1
+            }
+            
+            for (let i = index - 1; i >= 0; i--) {
+                temp.unshift(num[i]);
+                flag ++;
+                if (flag % 3 === 0 && i !== 0 && num[i-1] !== '-') {
+                    temp.unshift(',');
+                }
+            }
+            return temp.join('');
+        }
+       console.log(paddingNum(74.34));
+       console.log(paddingNum(1623767434));
+       console.log(paddingNum(-1623767434.40));
+    </script>
+</body>
+</html>

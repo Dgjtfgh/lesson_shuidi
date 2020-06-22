@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .root {
+            width: 100px;
+            height: 100px;
+        }
+        /* 单行实现 */
+        /* p {
+            height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        } */
+        /* 多行实现 */
+        p {
+            margin: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="root">
+        <p>sfdgfhjkjlkjhdfkjgfbnhmgmjgkhjdhgfhghfghfrytytuyv</p>
+    </div>
+</body>
+
+</html>

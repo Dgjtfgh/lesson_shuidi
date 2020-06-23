@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* width: 940px;
+            height: 940px; */
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            /* grid-template-areas: "box1 box2 box3"
+                "box4 box5 box6"
+                "box7 box8 box9"; */
+            grid-row-gap: 20px;
+            grid-column-gap: 20px
+        }
+
+        #Box {
+            background: #eee;
+        }
+
+        #Box:nth-child(odd) {
+            background: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 从现代浏览器布局的发展， grid 布局(grid-template-columns grid-template-rows )可以帮我们快速搞定，
+  但是考虑到兼容性问题， 布局方案降级选择需要考虑
+  flex 自适应布局方案 通过flex:1 也能完成任务
+  作为盒子模型和float 布局方案， 结合特定的html结构， 
+  我们在传统低端浏览器种， 也可以完美解决。 
+  不过 table display 方案， 我也可以在这类问题种尝试 -->
+    <div class="box">
+        <div class="box1" id="Box">1</div>
+        <div class="box2" id="Box">2</div>
+        <div class="box3" id="Box">3</div>
+        <div class="box4" id="Box">4</div>
+        <div class="box5" id="Box">5</div>
+        <div class="box6" id="Box">6</div>
+        <div class="box7" id="Box">7</div>
+        <div class="box8" id="Box">8</div>
+        <div class="box9" id="Box">9</div>
+    </div>
+</body>
+
+</html>

@@ -41,3 +41,10 @@
         timer栈 =》 poll栈 =》 check栈
 
         koa(实例) -> events -> stream -> fs/net/http(异步) libuv  
+
+- Buffer
+    js 没有二进制的数据类型，Buffer用于解决这个问题。
+    1. js 语言本身， 对于进制和位处理不够， Buffer 补刀
+    2. node 应用场景  IO  网络层  都是二进制 buffer 性能及处理能力优秀
+
+- stream  流操作  node 中最美好的

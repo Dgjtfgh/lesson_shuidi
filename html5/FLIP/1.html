@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul"></ul>
+    <button id="btn">add</button>
+    <button id="del">delete</button>
+    <script>
+        const ul = document.getElementById('ul');
+        let i = 0;
+        function getReacts(doms) {
+            return [...doms].map((dom) => {
+                const { left, top } = dom.getBoundingClientRect();
+                return {
+                    left,
+                    top
+                }
+            })
+        }
+
+        document.getElementById('btn').addEventListener('click', () => {
+            // 获取 起始状态
+            const preLi = ul.querySelectorAll('li');
+            const prePostion = getReacts(ul.querySelectorAll('li'));
+            const li = document.createElement('li');
+            i++;
+            li.innerHTML = i % 2 === 0 ? `<br />${i}<br />` : `<h2>${i}<h2/>`;
+            ul.insertBefore(li, ul.firstElementChild);
+            // 获取终点状态
+            const currentPostion = getReacts(preLi);
+            console.log(prePostion, currentPostion);
+            preLi.forEach((linode, i) => {
+                let diffLeft = prePostion[i].left - currentPostion[i].left;
+                let diffTop = prePostion[i].top - currentPostion[i].top;
+                const keyFrames = [
+                    {
+                        transform: `translate(${diffLeft}px, ${diffTop}px)`
+                    }, {
+                        transform: `translate(0)`
+                    }
+                ]
+                linode.animate(keyFrames, {
+                    duration: 300,
+                    easing: 'ease-in-out',
+                })
+            })
+
+        })
+        document.getElementById('del').addEventListener('click', () => {
+            const lis = ul.querySelectorAll('li');
+            let randomIndex = Math.floor(Math.random() * lis.length)
+            // 获取 起始状态
+            const preLis = [...lis].slice(randomIndex + 1);
+            const prePostion = getReacts(preLis)
+            ul.removeChild(lis[randomIndex]);
+            // 获取终点状态
+            const currentPostion = getReacts(preLis);
+            console.log(prePostion, currentPostion);
+            preLis.forEach((linode, i) => {
+                let diffLeft = prePostion[i].left - currentPostion[i].left;
+                let diffTop = prePostion[i].top - currentPostion[i].top;
+                const keyFrames = [
+                    {
+                        transform: `translate(${diffLeft}px, ${diffTop}px)`
+                    }, {
+                        transform: `translate(0)`
+                    }
+                ]
+                linode.animate(keyFrames, {
+                    duration: 300,
+                    easing: 'ease-in-out',
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

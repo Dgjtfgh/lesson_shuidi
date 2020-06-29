@@ -1,0 +1,23 @@
+<script>
+    let obj = {
+        a: 1,
+        b: 2,
+        [Symbol.iterator]: function() {
+            let keys = Object.keys(this);
+            return {
+                next: () => {
+                    let key = keys.shift();
+                    let value = this[key];
+                    return {
+                        done: key === undefined,
+                        value: [key, value]
+                    }
+                }
+            }
+        }
+    }
+    // obj = [{a: 1}, {b: 2}]
+    for (let x of obj) {
+        console.log(x);
+    }
+</script>

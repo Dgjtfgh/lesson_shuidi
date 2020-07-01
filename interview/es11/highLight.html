@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .keywords {
+            color: red;
+        }
+        .kuohao {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <pre id="wrap"></pre>
+    <script>
+        // 关键词 括号
+        let reg = /(function|return|class)|([\)\(\{\}])|([ \t\r\n]+)/g;
+        let code = `
+        function sleep() {
+            return Promise.resolve();
+        }
+        `
+        let map = ['keywords', 'kuohao', 'whitSpace'];
+        let info = reg.exec(code);
+        // 返回一个数组
+        // [匹配到了什么内容, 2 ~ n (匹配到的内容在第几个分组上面)]
+        while(info) {
+            // console.log(info);
+            // 拿到匹配的内容
+            let context = info[0];
+            // 这个内容属于哪个分组
+            let index = info.slice(1).findIndex(e => e === context);
+            console.log(index, context);
+            const span = document.createElement('span');
+            span.textContent = context;
+            span.classList.add(map[index]);
+            const wrap = document.getElementById('wrap');
+            wrap.appendChild(span);
+            info = reg.exec(code);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<script>
+    let obj = {
+        a: 1,
+        toString() {
+            console.log('toString 被调用了');
+            return 4;
+        },
+        // [Symbol.toPrimitive]() {
+        //     console.log('toPrimitive 被调用了')
+        //     return 0;
+        // }
+    }
+    // obj 在 转换为原始值的时候 会调用 toString / valueOf
+    console.log(obj > 1);
+</script>

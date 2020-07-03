@@ -1,0 +1,9 @@
+<script>
+    class CLs {
+        static [Symbol.hasInstance](instance) {
+            return Array.isArray(instance);
+        }
+    }
+    let a = new CLs();
+    console.log(a instanceof CLs);
+</script>

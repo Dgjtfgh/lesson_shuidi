@@ -1,0 +1,62 @@
+<script>
+    function Animal() {
+        // 属性
+        this.eat = 'eat';
+    }
+    // 方法
+    Animal.prototype.say = function () {
+
+    }
+
+    function Person() {
+        // 把属性添加到当前这个类上面，而不是添加到类的原型上面
+        Animal.call(this);
+    }
+    // 继承方法
+    // 1. 
+    // Person.prototype.__proto__ = Animal.prototype;
+
+    // 2. 
+    // Object.setPrototypeOf(Person.prototype, Animal.prototype);
+    // ES6 API
+
+    // 3
+    // 返回一个对象，这个对象.__proto__ 指向 传入的参数
+    // Person.prototype = Object.create(Animal.prototype);
+    // Person.prototype.constructor = Person;
+    
+    // es6 extends  babel编译完  就是 继承属性 + 继承方法
+    Person.prototype = Object.create(Animal.prototype, {
+        constructor: {
+            value: Person,
+            configable: false,
+            writeable: false
+        }
+    });
+
+    // 4
+    // Object.create 实现
+    // function create(obj) {
+    //     function f() {}
+    //     f.prototype = obj;
+    //     return new f();
+    //     // 实例的.__proto__ 指向 f.prototype  f.prototype  指向 obj
+    // }
+
+    // 5
+    function create() {
+        let obj = {};
+        Object.setPrototypeOf(obj, o);
+        return obj;
+    }
+
+
+    Person.prototype.sing = () => {
+        console.log('sing');
+    }
+
+    let p = new Person();
+    console.log(p);
+    console.log(p.eat);
+    console.log(p.say);
+</script>

@@ -1,0 +1,24 @@
+<script>
+    function Animal() {
+        this.live = 'land'
+        this.language = []
+    }
+    Animal.prototype.say = function () { }
+
+    function Person() {
+        this.eat = ''
+    }
+
+    Person.prototype = new Animal();
+    // Person.prototype = 实例
+    // 实例.__proto__ = Animal.prototype
+    let p = new Person();
+    console.log(p);
+    console.log(p.live);
+    console.log(p.language);
+
+    let p1 = new Person();
+    // p1 p 不同实例， 应该隔离起来，互不影响，各自有各自的属性
+    p1.language.push('english');
+    console.log(p1);
+</script>

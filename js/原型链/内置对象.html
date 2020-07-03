@@ -1,0 +1,42 @@
+<script>
+
+    let foo = {}
+    let arr = [1, 2, 3]
+    new Object();
+
+    // Object.__proto__ === Function.prototype;
+    // Function.__proto__ === Function.prototype;
+
+    // 右边构造的prototype有没有出现在左边这个对象的原型链上面
+    function instance(obj, constructor) {
+        let prototype = constructor.prototype;
+        if (obj === prototype) return true;
+        let proto = obj.__proto__;
+        if (proto === null) {
+            return false;
+        }
+        return instance(proto, constructor);
+    }
+
+    console.log(instance(Object, Function));
+    console.log(instance(Function, Object));
+    console.log(instance(Boolean, Function));
+    console.log(instance(foo, Function));
+    console.log(instance(arr, Array));
+    console.log(instance(Array, Function));
+
+    function instance1(obj, constructor) {
+        let proto = obj.__proto__;
+        while (proto !== constructor.prototype) {
+            if (proto === null) return false;
+            proto = proto.__proto__;
+        }
+        return true;
+    }
+    console.log(instance1(Object, Function));
+    console.log(instance1(Function, Object));
+    console.log(instance1(Boolean, Function));
+    console.log(instance1(foo, Function));
+    console.log(instance1(arr, Array));
+    console.log(instance1(Array, Function));
+</script>

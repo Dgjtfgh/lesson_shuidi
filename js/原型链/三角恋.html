@@ -1,0 +1,10 @@
+<script>
+    function Foo() {}
+
+    console.log(Foo.prototype);
+
+    let ani = new Foo();
+    console.log(ani);
+
+    console.log(ani.__proto__ === Foo.prototype);
+</script>

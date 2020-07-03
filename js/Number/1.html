@@ -1,0 +1,23 @@
+<script>
+    // Number.EPSILON
+    let a = 0.1 + 0.2;
+    let b = 0.3;
+    Math.abs(a - b) <= Number.EPSILON
+
+    // 浮点数运算
+
+    /**
+     * 精确加法
+     */
+    // 0.1 + 0.12
+    // 10 + 12 = 22
+    // 22 / 100 = 0.22
+    // 转整数  在运算 在转成小数
+    function plus(num1, num2){
+        let len = Math.max(num1.toString().split('.')[1].length, num2.toString().split('.')[1].length)
+        const baseNum = Math.pow(10, len);
+        return (num1 * baseNum + num2 * baseNum) / baseNum;
+    }
+    console.log(plus(0.1, 0.2));
+
+</script>

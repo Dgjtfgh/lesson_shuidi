@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 写模板 -->
+    <div id="root">
+        <div>
+            <div>
+                <p>{{name}} -- {{message}}</p>
+            </div>
+        </div>
+        <p>{{name}}</p>
+        <p>{{message}}</p>
+    </div>
+    <script>
+
+        // 步骤拆解
+        // 1. 拿到模板
+        // 2. 拿到数据
+        // 3. 将数据和模板结合，得到HTML
+        // 4. 放到页面中
+
+        // 1
+        let tmpNode = document.querySelector('#root');
+
+        // 2
+        let data = {
+            name: '一个新name',
+            message: '一个新消息'
+        };
+        // 3 将数据放到模板中
+        // 一般都是使用 递归
+
+        // 在真正的 Vue 源码中是 DOM -> 字符串模板 -> VNode -> 真正的DOM
+        let limit = /\{\{(.+?)\}\}/g;
+        function compiler(template, data) {
+            let childNodes = template.childNodes; // 取出子元素
+            for (let i = 0; i < childNodes.length; i++) {
+                let type = childNodes[i].nodeType;  // 1 元素 ， 3 文本节点
+                if (type === 3) {
+                    // 文本节点，可以判断里面是否有{{}} 插值
+                    let txt = childNodes[i].nodeValue;
+                    txt = txt.replace(limit, function (_, g) {
+                        let key = g.trim();
+                        let value = data[key];
+                        return value;
+                    })
+                    childNodes[i].nodeValue = txt;
+                } else if (type === 1) {
+                    // 元素，考虑它有没有子元素，是否需要将其子元素进行 判断是否要插值
+                    compiler(childNodes[i], data);
+                }
+            }
+        }
+        console.log(root);
+        // 此时没有生成新的 template , 所以这里看到的 是直接在页面更新后的数据， 应为 DOM 是引用类型
+        // 拷贝一份
+        let generateNode = tmpNode.cloneNode( true ); // 这里是DOM 元素，可以这么用
+        compiler(generateNode, data);
+
+        // 4
+        root.parentNode.replaceChild(generateNode, root);
+
+        console.log(root);
+
+        // 上面思路是极简的，存在很多问题
+        // 1. Vue 使用的是虚拟 DOM
+        // 2. 只考虑了单属性( {{name}} ), 而 Vue 中大量的使用层级 ( {{child.name.firstName}} )
+        // 3. 代码没有整合
+    </script>
+</body>
+
+</html>

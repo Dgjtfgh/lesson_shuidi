@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // window.onmessage = function (e) {
+        //     console.log('b.html receive', e);
+        //     // 
+        //     e.source.postMessage('this is from b', 'http://localhost:8080')
+        // }
+        function receiveMessage(event) {
+            event.source.postMessage('this is from b', 'http://localhost:8080');
+        }
+        window.addEventListener("message", receiveMessage, false);
+    </script>
+</body>
+
+</html>

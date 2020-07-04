@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        主窗口
+    </div>
+    <!-- <iframe src="./b.html" frameborder="0" id="iframe"></iframe> -->
+    <script>
+        // const frame = document.getElementById('iframe');
+        // frame.contentWindow.postMessage
+        const targetB = window.open('./b.html');
+        setTimeout(() => {
+            targetB.postMessage('this is from a', 'http://localhost:8080')
+            console.log('123456');
+        }, 5000);
+        window.onmessage = function (e) {
+            console.log('a.html receive', e);
+        }
+    </script>
+</body>
+</html>

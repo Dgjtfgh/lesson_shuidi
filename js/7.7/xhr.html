@@ -1,0 +1,31 @@
+<script>
+    var xhr = new XMLHttpRequest()
+    xhr.open('GET',
+        'http://neteasecloudmusicapi.zhaoboy.com/search?keywords=%E6%B5%B7%E9%98%94%E5%A4%A9%E7%A9%BA',
+        true)
+    xhr.onload = function (res) {
+        console.log(res);
+    }
+    xhr.send()
+
+    // axios 就是把 Promise XHR 封装
+    function axios({ method, url }) {
+        return new Promise((resolve, reject) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open(method, url, true); // true 代表 异步
+            xhr.onload = () => {
+                resolve(xhr.responseText);
+            }
+            xhr.onerror = () => {
+                reject();
+            }
+            xhr.send();
+        })
+    }
+    axios({
+        method: 'GET',
+        url : 'http://neteasecloudmusicapi.zhaoboy.com/search?keywords=%E6%B5%B7%E9%98%94%E5%A4%A9%E7%A9%BA'
+    }).then((data) => {
+        console.log(data);
+    })
+</script>

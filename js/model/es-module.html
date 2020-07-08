@@ -1,0 +1,16 @@
+<script type="module">
+    console.log('入口文件')
+    import { age } from './b.js';
+    console.log(age);
+    setTimeout(() => {
+        console.log(age);
+    }, 2000)
+// exmodule
+// 1. import/export 语句优先执行， tree-shaking, 
+// 方便 JS引擎做静态分析
+// (代码还没有运行的时候，你就知道你引用了哪些模块) 
+// 2. import 引入的是一个引用
+
+// commonJS 特点
+// 引入的是一个拷贝
+</script>

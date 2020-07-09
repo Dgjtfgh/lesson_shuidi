@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="doma">doma</div>
+    <div id="domb">domb</div>
+    <div id="domc">domc</div>
+    <script>
+        const DomA = document.getElementById('doma');
+        const DomB = document.getElementById('domb');
+        const DomC = document.getElementById('domc');
+
+        function time() {
+            // 第一个不会，是因为 之前没有任何 DOM 结构变化
+            // 认为 DomA.offsetWidth 就是最新的 offsetWidth，没必要重排
+            DomA.style.width = DomA.offsetWidth + 1 + 'px';
+            // layout forced 强制重排  DomA.offsetWidth 引起
+            // 因为之前有DOM 相关的操作，因为其他的DOM操作可能会对DomA的 offsetWidth 造成影响
+            // 为了给开发者最实时的 offsetWidth 信息，强制重排
+            DomB.style.width = DomA.offsetWidth + 1 + 'px';
+            // layout forced 强制重排  DomA.offsetWidth 引起
+            DomC.style.width = DomA.offsetWidth + 1 + 'px';
+
+            // 上面 三行代码完毕之后， 重新计算一下受影响的 DOM 结构，最后一次重排
+        }
+
+        setTimeout(() => {
+            time();
+        }, 2000);
+
+    </script>
+</body>
+
+</html>

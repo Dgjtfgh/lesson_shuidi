@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .success-btn {
+            border: none;
+            border: 1px solid green;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <button is="success-btn">btn1</button>
+    <button class="success-btn">btn2</button>
+    <button is="success-btn">btn3</button>
+    <script>
+        // DOM
+        class SuccessBtn extends HTMLButtonElement {
+            constructor() {
+                // 公共的样式
+                // 公共的行为
+                super();
+                this.classList.add('success-btn');
+                this.addEventListener('click', () => {
+                    alert('成功');
+                })
+            }
+        }
+        customElements.define('success-btn', SuccessBtn, { extends: 'button' })
+    </script>
+</body>
+</html>

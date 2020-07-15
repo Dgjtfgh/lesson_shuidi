@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <template id="header">
+    <h2>
+      LOGO
+    </h2>
+    <span>
+      <slot name="title"></slot>
+    </span>
+  </template>
+  <yt-header>
+    <span slot="title" class="active">首页</span>
+  </yt-header>
+
+  <yt-header>
+    <h2 slot="title" on-click="handleActive"
+    on-mousedown="handDown"
+    >详情页</h2>
+  </yt-header>
+  <script>
+    class YTHeader extends HTMLElement {
+      constructor() {
+        super();
+        const commonTpl = document.getElementById('header');
+        // 得到一段 shadow dom
+        const shadow = this.attachShadow({mode: 'open'})
+        // 一个节点只能用一次，用了一次下一次 就没有了
+        // 不用这个节点 拷贝完一份再用
+        let frag = document.createDocumentFragment();
+        for (let e of commonTpl.content.childNodes) {
+          frag.appendChild(e.cloneNode(true))
+        }
+        shadow.appendChild(frag)
+        console.log(this);
+        // this.appendChild(commonTpl.content);
+        this.addEventListener('click', () => {
+          console.log(111);
+        })
+        // this.querySelector('[slot="title"]')
+        // .addEventListener('click', function() {
+        //   console.log(this.innerHTML)
+        // })
+        // 处理事件
+        const slot = this.querySelector('[slot="title"]');
+        for (let attr of slot.getAttributeNames()) {
+          if (attr.startsWith('on')) {
+          //  console.log(attr);
+            let eventName = attr.split('-')[1];
+            this.addEventListener(eventName, this[slot.getAttribute(attr)])
+          }
+        }
+      }
+      handleActive = () => {
+        console.log('22222');
+      }
+      handDown = () => {
+        console.log(11111111);
+      }
+    }
+    customElements.define('yt-header', YTHeader)
+  </script>
+</body>
+</html>

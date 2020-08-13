@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #wrapper {
+            width: 100%;
+            height: 100px;
+            /* border: 1px solid #000000; */
+            /* margin: 0 auto; */
+        }
+        
+        #progressbar {
+            width: 100%;
+            height: 20px;
+            margin: 0 auto;
+            /* margin-top: 40px; */
+            border: 1px solid #000000;
+        }
+        /* 设置进度条动画 */
+        
+        #fill {
+            animation: move 2s;
+            text-align: center;
+            background-color: #6caf00;
+            color: #ffffff;
+        }
+        /* 实现元素宽度过度的动画效果 */
+        
+        @keyframes move {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- 进度条容器 -->
+        <div id="progressbar">
+            <!-- 进度条 -->
+            <div id="fill"></div>
+        </div>
+    </div>
+    <script>
+        (function() {
+            var progressbar = {
+                init: function() {
+                    var fill = document.getElementById("fill");
+                    var count = 0;
+                    var timer = setInterval(() => {
+                        count++;
+                        fill.innerHTML = count + '%';
+                        if (count === 100) {
+                            clearInterval(timer)
+                        }
+                    }, 17);
+                }
+            };
+            progressbar.init();
+        })()
+    </script>
+</body>
+
+</html>

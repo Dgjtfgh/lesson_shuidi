@@ -1,0 +1,2 @@
+- em 相对于自身的 font-size 定义的
+- rem 相对于根元素（html)的 font-size 定义的
